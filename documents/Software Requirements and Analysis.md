@@ -31,7 +31,7 @@
 
 - **BE - 01**
 
-  The system will be implemented using REST-API backend technology, ensuring access to employee information.
+  The system will be implemented using REST-API backend technology, ensuring access to employee data.
 
 - **BE - 02**
 
@@ -53,7 +53,7 @@
 
 - **DB - 03**
 
-  Each document contains employee's "as person/worker" information.
+  Each document contains employee's "as person/worker" data.
 
 - **DB - 04**
 
