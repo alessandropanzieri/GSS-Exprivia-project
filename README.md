@@ -21,10 +21,10 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
 In this GitHub repository, in addition to the source code, it is possible to find the following UML formatted documents:
 
-- *analysis of functional requirements*
-- *use case analysis*
-- *component diagram*
-- *ER diagram for defining the data model*
-- *flowcharts for main features*
-- *deployment diagram*
-- *functional test document*
+- analysis of functional requirements
+- use case analysis
+- component diagram
+- ER diagram for defining the data model
+- flowcharts for main features
+- deployment diagram
+- functional test document
