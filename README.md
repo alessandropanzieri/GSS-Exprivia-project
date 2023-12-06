@@ -19,7 +19,7 @@ Only some users of the system have the possibility to create, modify or delete e
 
 The system is usable via common web browsers, therefore end users haven't to install any software on their workstations. To ensure its maintainability, the system has been developed using cutting-edge technologies and the architecture has an approach open to new features.
 
-In this GitHub repository, in addition to the source code, it is possible to find the following UML formatted documents:
+In this GitHub repository, in addition to the source code, it is possible to find the following UML formatted documentation:
 
 - analysis of functional requirements
 - use case analysis
