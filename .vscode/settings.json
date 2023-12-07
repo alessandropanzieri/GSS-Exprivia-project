@@ -1,15 +1,16 @@
 {
   "files.exclude": {
-    "source_code\\frontend\\node_modules": true,
-    "source_code\\frontend\\.gitignore": true,
-    "source_code\\frontend\\package-lock.json": true,
-    "source_code\\frontend\\package.json": true,
-    "source_code\\frontend\\rollup.config.js": true,
     "README.md": true,
     "documentation": true,
-    "source_code\\frontend\\public\\build": true,
-    "source_code\\frontend\\public": true,
-    ".vscode": true,
-    "source_code\\frontend\\src": true
+    "source_code\\frontend\\.svelte-kit": true,
+    "source_code\\frontend\\node_modules": true,
+    "source_code\\frontend\\.gitignore": true,
+    "source_code\\frontend\\.npmrc": true,
+    "source_code\\frontend\\package-lock.json": true,
+    "source_code\\frontend\\package.json": true,
+    "source_code\\frontend\\svelte.config.js": true,
+    "source_code\\frontend\\vite.config.js": true,
+    "source_code\\frontend\\src\\app.html": true,
+    ".vscode": true
   }
 }
