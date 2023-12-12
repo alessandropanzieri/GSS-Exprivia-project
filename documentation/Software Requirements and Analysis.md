@@ -8,13 +8,13 @@
 
   *as person*
 
-  - personal information
+  - personal information (name, surname, date of birth)
   - photography
-  - contacts
+  - contacts (mobile number, email)
 
   *as worker*
 
-  - qualification (the military rank)
+  - qualification (the military rank, years of service)
   - any current assignment (e.g. mission commander in xxx)
   - current status (in service/resigned/fired/retired)
   - chronology of service statuses, associated with a date
@@ -31,30 +31,26 @@
 
 - **BE - 01**
 
-  The system will be implemented using REST-API backend technology, ensuring access to employee data.
+  The system backend will be based on REST-API, ensuring access to employee data.
 
 - **BE - 02**
 
-  The system wil be implement an authentication system using Flask-Security and JWT tokens to protect user credentials.
+  The system will expose an authentication mechanism based on JWT tokens to protect user information.
 
 - **BE - 03**
 
-  In order to secure communication between the frontend and backend through, the system will be use JSON Web Tokens too.
+  In order to secure communication between the frontend and backend, communication between frontend and backend will be sured by an SSL channel.
 
 ## Database
 
 - **DB - 01**
 
-  In order to storage employees' data, non-relational database will be the data-model used.
+  In order to store employees' data, a non-relational database will be used.
 
 - **DB - 02**
 
-  Use of a specific employees' collection is provided in order to organize each employee's document.
+  Each document contains employee's data.
 
 - **DB - 03**
-
-  Each document contains employee's "as person/worker" data.
-
-- **DB - 04**
 
   Each document has an unique id, in order to search or update each employee's data.
