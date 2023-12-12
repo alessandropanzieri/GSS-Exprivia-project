@@ -1,23 +1,26 @@
 ---
-interface Props {
-	title: string;
+export interface Props {
+    title?: string
+    description?: string
 }
 
-const { title } = Astro.props;
+const {
+    title = "Gamma Security Services",
+    description = "GSS (Gamma Security Services) is a worldwide military private security company (PMSC)."
+} = Astro.props
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang = "en">
-	<head>
-		<title>{title}</title>
-		<meta charset = "UTF-8"/>
-		<meta name = "viewport" content = "width = device-width"/>
-		<meta name="generator" content={Astro.generator}/>
-	</head>
-	<body>
-		<slot/>
-	</body>
+    <head>
+        <title>{title}</title>
+        <meta charset = "UTF-8"/>
+        <meta name = "description" content = {description}/>
+        <meta name = "generator" content = {Astro.generator}/>
+        <meta name = "viewport" content = "width = device-width"/>
+        <link rel = "icon" type = "image/png" href = "/favicon.png"/>
+    </head>
+    <body>
+        <slot/>
+    </body>
 </html>
-
-<style>
-</style>

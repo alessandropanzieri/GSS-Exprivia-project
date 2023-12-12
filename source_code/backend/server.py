@@ -1,8 +1,6 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
 
 server = Flask(__name__)
-CORS(server)
 
 @server.get("/")
 def index():
