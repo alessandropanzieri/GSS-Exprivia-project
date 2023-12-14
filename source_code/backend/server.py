@@ -1,9 +1,8 @@
-from flask import Flask, jsonify
+from fastapi import FastAPI
 
-server = Flask(__name__)
+server = FastAPI()
 
 @server.get("/")
 def index():
-    return jsonify({"message": "Hello from Flask!"})
 
-if __name__ == "__main__": server.run(debug = True)
+    return {"message": "Hello from FastAPI!"}
