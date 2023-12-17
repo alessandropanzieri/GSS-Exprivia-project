@@ -25,7 +25,16 @@ import Footer from "@components/Footer.astro";
 </Layout>
 
 <style>
-    main::-webkit-scrollbar {
+    main {
+        left: 0px;
+        top: 94px;
+        right: 0px;
+        bottom: 0px;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    ​main::-webkit-scrollbar {
         width: 10px;
     }
 
@@ -40,16 +49,6 @@ import Footer from "@components/Footer.astro";
     main::-webkit-scrollbar-thumb:hover {
         background: rgb(85, 85, 85);
     }
-    main {
-        left: 0px;
-        top: 94px;
-        right: 0px;
-        bottom: 0px;
-        position: fixed;
-        overflow-y: auto;
-    }
-    ​
-
 
     div {
         padding: 15px;
