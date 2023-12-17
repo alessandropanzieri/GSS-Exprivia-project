@@ -1,33 +1,24 @@
 ---
+import "@fontsource-variable/roboto-slab";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 ---
 
 <Layout>
-    <Header></Header>
+    <Header/>
     <main>
         <div>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
-            <h1>ciao</h1>
+            <p>A Worldwide Private Security</p>
         </div>
-        <Footer></Footer>
+        <Footer/>
     </main>
 </Layout>
 
 <style>
     main {
         left: 0px;
-        top: 94px;
+        top: 15vh;
         right: 0px;
         bottom: 0px;
         position: fixed;
@@ -51,6 +42,22 @@ import Footer from "@components/Footer.astro";
     }
 
     div {
-        padding: 15px;
+        height: 85vh;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        justify-content: space-between;
+        background-image: url("/background.jpg");
+    }
+
+    p {
+        left: 150px;
+        font-size: 50px;
+        position: relative;
+        color: rgb(255, 255, 255);
+        font-family: "Roboto Slab Variable", serif;
+        filter: drop-shadow(0 0 0.5rem rgb(37, 42, 63));
     }
 </style>
