@@ -10,21 +10,25 @@ import "@fontsource/titillium-web";
     <nav>
         <a href = "/signup">Signup</a>
         <a href = "/login">Login</a>
-        <a href = "/about">About us</a>
-        <a href = "/contacts">Contacts</a>
     </nav>
 </header>
 
 <style>
     header {
-        padding: 15px;
+        top: 0;
+        z-index: 1;
+        width: 100%;
         display: flex;
+        position: fixed;
         align-items: center;
         justify-content: space-between;
+        background-color: rgb(127, 255, 212);
+        filter: drop-shadow(0 0 0.15rem rgb(37, 42, 63));
     }
 
     div, nav {
         gap: 20px;
+        padding: 15px;
         display: flex;
         align-items: center;
     }
