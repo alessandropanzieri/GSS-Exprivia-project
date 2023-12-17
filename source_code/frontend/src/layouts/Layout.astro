@@ -19,8 +19,40 @@ const {
         <meta name = "generator" content = {Astro.generator}/>
         <link rel = "icon" type = "image/png" href = "/favicon.png"/>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1"/>
+        <script is:inline src = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     </head>
     <body>
         <slot/>
     </body>
 </html>
+
+<style>
+    html, body {
+        height: 200%;
+    }
+
+    body {
+        margin: 0;
+        display: flex;
+        cursor: default;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgb(127, 255, 212);
+    }
+
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: rgb(241, 241, 241);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: rgb(136, 136, 136);
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: rgb(85, 85, 85);
+    }
+</style>

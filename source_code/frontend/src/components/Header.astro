@@ -1,0 +1,58 @@
+---
+import "@fontsource/titillium-web";
+---
+
+<header>
+    <div>
+        <img src = "/favicon.png" alt = "logo">
+        <h2>Gamma Security Services</h2>
+    </div>
+    <nav>
+        <a href = "/signup">Signup</a>
+        <a href = "/login">Login</a>
+        <a href = "/about">About us</a>
+        <a href = "/contacts">Contacts</a>
+    </nav>
+</header>
+
+<style>
+    header {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    div, nav {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    div {
+        cursor: pointer;
+    }
+
+    img {
+        filter: drop-shadow(0 0 0.35rem rgb(37, 42, 63));
+    }
+
+    h2, a {
+        color: rgb(37, 42, 63);
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<script>
+    $("div").on("click", () => {
+        window.location.href = "/";
+    });
+</script>
