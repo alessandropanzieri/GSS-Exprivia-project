@@ -9,7 +9,8 @@ import Footer from "@components/Footer.astro";
     <Header/>
     <main>
         <div>
-            <p>A Worldwide Private Security</p>
+            <p>A Worldwide Private Service</p>
+            <p>We Guarantee Your Security.</p>
         </div>
         <Footer/>
     </main>
@@ -45,15 +46,16 @@ import Footer from "@components/Footer.astro";
         height: 85vh;
         display: flex;
         overflow: hidden;
-        align-items: center;
         background-size: cover;
+        flex-direction: column;
+        justify-content: center;
         background-repeat: no-repeat;
-        justify-content: space-between;
         background-image: url("/background.jpg");
     }
 
     p {
-        left: 150px;
+        margin: 0;
+        left: 125px;
         font-size: 50px;
         position: relative;
         color: rgb(255, 255, 255);
