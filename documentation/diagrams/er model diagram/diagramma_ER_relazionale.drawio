@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net" modified="2023-12-18T12:53:31.676Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="u-_i65vv76vZffPQwTvP" version="22.1.11" type="google">
+  <diagram name="Pagina-1" id="hI9VA0zBAQhlbfbl-t4V">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cZnkTjqhtqFN9i6IQodg-44" value="Dipendente" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="140" width="180" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="cZnkTjqhtqFN9i6IQodg-45" value="&lt;u&gt;ID_dipendente&lt;/u&gt;&lt;br&gt;&lt;u&gt;nome&lt;br&gt;cognome&lt;br&gt;data_di_nascita&lt;br&gt;telefono&lt;br&gt;email&lt;br&gt;tipo&lt;/u&gt; (operativo/amministrativo)&lt;br&gt;&lt;br&gt;rango_militare&lt;br&gt;stato_di_attivita" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="cZnkTjqhtqFN9i6IQodg-44">
+          <mxGeometry y="50" width="180" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cZnkTjqhtqFN9i6IQodg-47" value="Evento/Incarico" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="140" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cZnkTjqhtqFN9i6IQodg-48" value="&lt;u&gt;ID_evento&lt;br&gt;data_evento&lt;br&gt;descrizione&lt;/u&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="cZnkTjqhtqFN9i6IQodg-47">
+          <mxGeometry y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-2" value="Svolge" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-3" value="&lt;u&gt;ID&lt;br&gt;ID_dipendente&lt;br&gt;ID_evento&lt;br&gt;&lt;/u&gt;data_evento" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="J3dcDxjAKYBrVKoJMKhc-2">
+          <mxGeometry y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="cZnkTjqhtqFN9i6IQodg-47">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="170" as="sourcePoint" />
+            <mxPoint x="570" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-6" value="0.M" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="J3dcDxjAKYBrVKoJMKhc-4">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-7" value="1.1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="J3dcDxjAKYBrVKoJMKhc-4">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-8" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.009;entryY=0.131;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="cZnkTjqhtqFN9i6IQodg-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="170" as="sourcePoint" />
+            <mxPoint x="226" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-10" value="0.N" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="J3dcDxjAKYBrVKoJMKhc-8">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J3dcDxjAKYBrVKoJMKhc-11" value="1.1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="J3dcDxjAKYBrVKoJMKhc-8">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
