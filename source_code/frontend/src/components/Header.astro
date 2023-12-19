@@ -3,12 +3,11 @@ import "@fontsource/titillium-web";
 ---
 
 <header>
-    <div>
-        <img src = "/favicon.png" alt = "logo">
-        <h2>Gamma Security Services</h2>
-    </div>
     <nav>
-        <a href = "/signup">Signup</a>
+        <div>
+            <img src = "/favicon.png" alt = "logo">
+            <h2>Gamma Security Services</h2>
+        </div>
         <a href = "/login">Login</a>
     </nav>
 </header>
@@ -19,23 +18,23 @@ import "@fontsource/titillium-web";
         z-index: 1;
         width: 100%;
         height: 15vh;
-        display: flex;
         position: fixed;
-        align-items: center;
-        justify-content: space-between;
         background-color: rgb(127, 255, 212);
         filter: drop-shadow(0 0 0.15rem rgb(37, 42, 63));
     }
 
-    div, nav {
-        gap: 25px;
+    nav {
         padding: 15px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
 
     div {
+        gap: 25px;
+        display: flex;
         cursor: pointer;
+        align-items: center;
     }
 
     img {
