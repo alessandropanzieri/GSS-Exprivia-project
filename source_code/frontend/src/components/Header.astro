@@ -1,5 +1,15 @@
 ---
 import "@fontsource/titillium-web";
+
+export interface Props {
+    redirect?: string
+    action?: string
+}
+
+const {
+    redirect = "/search",
+    action = "login",
+} = Astro.props
 ---
 
 <header>
@@ -7,8 +17,9 @@ import "@fontsource/titillium-web";
         <div>
             <img src = "/favicon.png" alt = "logo">
             <h2>Gamma Security Services</h2>
+            <slot/>
         </div>
-        <a href = "/login">Login</a>
+        <a href = {redirect}>{action}</a>
     </nav>
 </header>
 
@@ -33,11 +44,11 @@ import "@fontsource/titillium-web";
     div {
         gap: 25px;
         display: flex;
-        cursor: pointer;
         align-items: center;
     }
 
     img {
+        cursor: pointer;
         filter: drop-shadow(0 0 0.35rem rgb(37, 42, 63));
     }
 
@@ -57,7 +68,7 @@ import "@fontsource/titillium-web";
 </style>
 
 <script>
-    $("div").on("click", () => {
+    $("img").on("click", () => {
         window.location.href = "/";
     });
 </script>
