@@ -1,5 +1,7 @@
 # main.py
 
+from enum import Enum  # Add this import
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -7,6 +9,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 from typing import Optional, List
 from httpx import AsyncClient
+
 
 app = FastAPI()
 
