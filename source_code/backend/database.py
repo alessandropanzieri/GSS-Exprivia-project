@@ -2,7 +2,8 @@
 
 from pymongo import MongoClient
 from bson import ObjectId
-from enum import Enum
+from enum import Enum  # Import Enum
+from fastapi import HTTPException  # Import HTTPException
 from pydantic import BaseModel
 from typing import Optional, List
 
