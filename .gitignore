@@ -1,3 +1,4 @@
-/source_code/backend/__pycache__
-/source_code/frontend/node_modules
-/source_code/frontend/src/env.d.ts
+/src/backend/__pycache__
+/src/frontend/node_modules
+/src/frontend/src/env.d.ts
+/src/frontend/package-lock.json

@@ -1,5 +1,5 @@
 {
-    "scripts": {
+  "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -9,6 +9,6 @@
   "dependencies": {
     "@fontsource-variable/roboto-slab": "^5.0.18",
     "@fontsource/titillium-web": "^5.0.18",
-    "astro": "^4.0.6"
+    "astro": "^4.0.9"
   }
 }
