@@ -15,14 +15,14 @@ const {
 <header>
     <nav>
         <div>
-            <img src = "/favicon.png" alt = "logo">
+            <img id = "logo" src = "/favicon.png" alt = "logo">
             <h2>Gamma Security Services</h2>
             <slot/>
         </div>
         {action == "login" ?
             <form action = "/search">
-                <input type = "text" name = "username" placeholder = "USERNAME">
-                <input type = "password" name = "password" placeholder = "PASSWORD">
+                <input type = "text" name = "username" placeholder = "USERNAME" required>
+                <input type = "password" name = "password" placeholder = "PASSWORD" required>
                 <input type = "submit" value = "LOGIN">
             </form>
             : <a href = {redirect}>{action}</a>
@@ -96,7 +96,7 @@ const {
 </style>
 
 <script>
-    $("img").on("click", () => {
+    $("#logo").on("click", () => {
         window.location.href = "/";
     });
 </script>

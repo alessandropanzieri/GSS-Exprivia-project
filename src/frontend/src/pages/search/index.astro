@@ -1,15 +1,19 @@
 ---
+import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import Search from "@components/Search.astro";
 ---
 
 <Layout>
     <Header redirect = "/" action = "Logout">
-        <h2>Employee Research</h2>
+        <h2>Dashboard</h2>
     </Header>
     <main>
-        <Search></Search>
+        <form action = "/search" method = "POST">
+            <input type = "text" name = "search" placeholder = "Search for an employee..." required>
+            <button type = "submit"><img src = "/search.png" alt = "search"></button>
+        </form>
+        <div id = "employees"></div>
     </main>
 </Layout>
 
@@ -21,6 +25,60 @@ import Search from "@components/Search.astro";
     }
 
     main {
+        height: 100%;
         padding: 10px 15px;
     }
+
+    form {
+        gap: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        width: 100%;
+        font-size: 20px;
+        border-width: 2px;
+        padding-left: 25px;
+        border-radius: 90px;
+        outline-color: rgb(37, 42, 63);
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    #employees {
+        height: 100%;
+        overflow-y: auto;
+    }
 </style>
+
+<script>
+    $("form").on("submit", function (event) {
+        event.preventDefault();
+        const employees = [
+            {name: "Alejandro Acosta", id: 1},
+            {name: "Alessandro Panzieri", id: 2},
+            {name: "Lorenzo Palombi", id: 3},
+            {name: "Matteo Carbone", id: 4}
+        ];
+
+        employees.forEach(function(info) {
+            var employee = `
+                <div style = "cursor: pointer; display: flex; align-items: center; justify-content: space-between;" onclick = "window.location.href = 'employee/${info.id}'">
+                    <div style = "display: flex; align-items: center; gap: 15px;">
+                        <img src = "/profile.png" alt = "profile">
+                        <h1 style = "font-family: 'Titillium Web', sans-serif;">${info.name}</h1>
+                    </div>
+                    <img src = "/open.png" alt = "open">
+                </div>
+            `
+            $("#employees").append(employee);
+        });
+    });
+</script>
