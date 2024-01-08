@@ -4,13 +4,13 @@ GSS (Gamma Security Services) is a worldwide military private security company (
 
 *as person*
 
-- personal information
+- generic information
 - photography
 - contacts
 
 *as worker*
 
-- qualification (the military rank)
+- Military rank
 - any current assignment (e.g. mission commander in xxx)
 - current status (in service/resigned/fired/retired)
 - chronology of service statuses, associated with a date

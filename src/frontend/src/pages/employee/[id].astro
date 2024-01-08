@@ -17,16 +17,96 @@ const { id } = Astro.params;
 
 <Layout>
     <Header redirect = "/search" action = "Go back">
-        <h2>Employee Info</h2>
+        <h2 id = "page">Employee Info</h2>
     </Header>
+
     <main>
+        <div id = "employee">
+            <img id = "profile" src = "/profile-large.png" alt = "profile picture">
+            <div id = "a">
+                <h2 class = "info">NAME SURNAME</h2>
+                <h2 class = "info">Birthday:</h>
+                <h2 class = "info">Email:</h2>
+                <h2 class = "info">Mobile phone:</h2>
+                <h2 class = "info">Military rank:</h2>
+                <h2 class = "info">Current assignment:</h2>
+                <h2 class = "info">Current status:</h2>
+                <h2 id = "chronology">Chronology of service statuses</h2>
+                <table border = "1">
+                  <tr>
+                      <td><input type = "text" placeholder = "MISSIONE 1"></td>
+                      <td><input type = "text" placeholder = "gg/mm/yyyy"></td>
+                      <td><input type = "text" placeholder = "EDITABLE"></td>
+                      <td id = "delete"><img src = "/delete.png" alt = "delete"></td>
+                  </tr>
+                  <tr>
+                      <td><input type = "text" placeholder = "MISSIONE 2"></td>
+                      <td><input type = "text" placeholder = "gg/mm/yyyy"></td>
+                      <td><input type = "text" placeholder = "EDITABLE"></td>
+                      <td id = "delete"><img  src = "/delete.png" alt = "delete"></td>
+                  </tr>
+              </table>
+            </div>
+        </div>
+        <img id = "bin" src = "/bin.png" alt = "bin">
     </main>
+
 </Layout>
 
 <style>
-    h2 {
+    #page {
         margin: 0;
         color: rgba(37, 42, 63, 0.65);
         font-family: "Titillium Web", sans-serif;
+    }
+
+    #chronology {
+        margin: 15px 0;
+        color: rgba(37, 42, 63, 0.65);
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    main {
+        display: flex;
+        padding: 10px 15px;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    #employee {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    #a {
+        flex: 1;
+        margin: 0 15px;
+        overflow-y: auto;
+    }
+
+    #profile {
+        width: 25%;
+    }
+
+    .info {
+        margin: 15px 0;
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    td {
+        padding: 0 2.5px;
+    }
+
+    #delete {
+        border: none;
+    }
+
+    #bin, #delete img {
+        cursor: pointer;
+    }
+
+    input {
+        border: none;
     }
 </style>
