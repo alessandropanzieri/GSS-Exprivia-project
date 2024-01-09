@@ -58,9 +58,35 @@ import Header from "@components/Header.astro";
 </style>
 
 <script>
+    let employees = [
+            {name: "Alejandro Acosta", id: 1},
+            {name: "Alessandro Panzieri", id: 2},
+            {name: "Lorenzo Palombi", id: 3},
+            {name: "Matteo Carbone", id: 4},
+            {name: "Alessia Rossini", id: 5},
+            {name: "Luigi Bianchi", id: 6},
+            {name: "Mario Rossi", id: 7},
+            {name: "Bianca Verdi", id: 8},
+            {name: "Flavio Blu", id: 9},
+            {name: "Elisa ", id: 10}
+
+        ];
+
+        employees.forEach(function(info) {
+            var employee = `
+                <div style = "cursor: pointer; display: flex; align-items: center; justify-content: space-between;" onclick = "window.location.href = 'employee/${info.id}'">
+                    <div style = "display: flex; align-items: center; gap: 15px;">
+                        <img src = "/profile_small.png" alt = "profile picture">
+                        <h1 style = "font-family: 'Titillium Web', sans-serif;">${info.name}</h1>
+                    </div>
+                    <img src = "/open.png" alt = "open">
+                </div>
+            `
+            $("#employees").append(employee);
+        });
     $("form").on("submit", function (event) {
         event.preventDefault();
-        const employees = [
+        employees = [
             {name: "Alejandro Acosta", id: 1},
             {name: "Alessandro Panzieri", id: 2},
             {name: "Lorenzo Palombi", id: 3},
@@ -71,7 +97,7 @@ import Header from "@components/Header.astro";
             var employee = `
                 <div style = "cursor: pointer; display: flex; align-items: center; justify-content: space-between;" onclick = "window.location.href = 'employee/${info.id}'">
                     <div style = "display: flex; align-items: center; gap: 15px;">
-                        <img src = "/profile-small.png" alt = "profile picture">
+                        <img src = "/profile_small.png" alt = "profile picture">
                         <h1 style = "font-family: 'Titillium Web', sans-serif;">${info.name}</h1>
                     </div>
                     <img src = "/open.png" alt = "open">
