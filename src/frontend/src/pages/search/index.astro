@@ -2,6 +2,20 @@
 import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
+import Employee from "@components/Employee.astro";
+
+let employees = [
+    {name: "Alejandro Acosta", id: 1},
+    {name: "Alessandro Panzieri", id: 2},
+    {name: "Lorenzo Palombi", id: 3},
+    {name: "Matteo Carbone", id: 4},
+    {name: "Alessia Rossini", id: 5},
+    {name: "Luigi Bianchi", id: 6},
+    {name: "Mario Rossi", id: 7},
+    {name: "Bianca Verdi", id: 8},
+    {name: "Flavio Blu", id: 9},
+    {name: "Elisa Giallini", id: 10}
+];
 ---
 
 <Layout>
@@ -13,7 +27,11 @@ import Header from "@components/Header.astro";
             <input type = "text" name = "search" placeholder = "Search for an employee..." required>
             <button type = "submit"><img src = "/search.png" alt = "search"></button>
         </form>
-        <div id = "employees"></div>
+        <div id = "employees">{
+            employees.map(info => (
+                <Employee id = `${info.id}` name = `${info.name}`/>
+            ))
+        }</div>
     </main>
 </Layout>
 
@@ -52,57 +70,6 @@ import Header from "@components/Header.astro";
     }
 
     #employees {
-        height: 100%;
         overflow-y: auto;
     }
 </style>
-
-<script>
-    let employees = [
-            {name: "Alejandro Acosta", id: 1},
-            {name: "Alessandro Panzieri", id: 2},
-            {name: "Lorenzo Palombi", id: 3},
-            {name: "Matteo Carbone", id: 4},
-            {name: "Alessia Rossini", id: 5},
-            {name: "Luigi Bianchi", id: 6},
-            {name: "Mario Rossi", id: 7},
-            {name: "Bianca Verdi", id: 8},
-            {name: "Flavio Blu", id: 9},
-            {name: "Elisa ", id: 10}
-        ];
-
-        employees.forEach(function(info) {
-            var employee = `
-                <div style = "cursor: pointer; display: flex; align-items: center; justify-content: space-between;" onclick = "window.location.href = 'employee/${info.id}'">
-                    <div style = "display: flex; align-items: center; gap: 15px;">
-                        <img src = "/profile_small.png" alt = "profile picture">
-                        <h1 style = "font-family: 'Titillium Web', sans-serif;">${info.name}</h1>
-                    </div>
-                    <img src = "/open.png" alt = "open">
-                </div>
-            `
-            $("#employees").append(employee);
-        });
-    $("form").on("submit", function (event) {
-        event.preventDefault();
-        employees = [
-            {name: "Alejandro Acosta", id: 1},
-            {name: "Alessandro Panzieri", id: 2},
-            {name: "Lorenzo Palombi", id: 3},
-            {name: "Matteo Carbone", id: 4}
-        ];
-
-        employees.forEach(function(info) {
-            var employee = `
-                <div style = "cursor: pointer; display: flex; align-items: center; justify-content: space-between;" onclick = "window.location.href = 'employee/${info.id}'">
-                    <div style = "display: flex; align-items: center; gap: 15px;">
-                        <img src = "/profile_small.png" alt = "profile picture">
-                        <h1 style = "font-family: 'Titillium Web', sans-serif;">${info.name}</h1>
-                    </div>
-                    <img src = "/open.png" alt = "open">
-                </div>
-            `
-            $("#employees").append(employee);
-        });
-    });
-</script>

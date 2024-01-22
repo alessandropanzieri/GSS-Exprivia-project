@@ -1,0 +1,48 @@
+---
+import "@fontsource/titillium-web";
+
+export interface Props {
+    id?: string
+    name?: string
+}
+
+const {
+    id,
+    name,
+} = Astro.props
+---
+
+<div class = "employee" id = {id}>
+    <div class = "picture">
+        <img src = "/profile_small.png" alt = "profile picture">
+        <h1>{name}</h1>
+    </div>
+    <img src = "/open.png" alt = "open" />
+</div>
+
+<style>
+    .employee {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .picture {
+        gap: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: "Titillium Web", sans-serif;
+    }
+</style>
+
+<script>
+    $(function () {
+        $(".employee").on("click", function() {
+            window.location.href = `employee/${$(this).attr("id")}`;
+        });
+    });
+</script>
