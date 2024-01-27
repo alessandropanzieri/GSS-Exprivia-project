@@ -1,8 +1,8 @@
+# main.py
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
-from bson import ObjectId
-from typing import List
+from crud import create_employee, get_all_employees, get_employee, update_employee, delete_employee
+from database import employees_collection, administrative_collection, event_collection
 
 app = FastAPI()
 
@@ -16,78 +16,36 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# MongoDB connection
-try:
-    client = AsyncIOMotorClient("mongodb://localhost:27017")
-    db = client["GSSDatabase"]  # Update with your actual database name
-    employees_collection = db["employees"]  # Update with your actual collection name
-    print("Connected to MongoDB")
-except Exception as e:
-    print(f"Failed to connect to MongoDB: {str(e)}")
+# Astro frontend endpoint
+@app.get("/astro-frontend")
+async def astro_frontend():
+    # Replace 'YOUR_FRONTEND_ENDPOINT' with the actual endpoint provided by your colleague
+    frontend_endpoint = 'YOUR_FRONTEND_ENDPOINT'
+    return {"astro_frontend_endpoint": frontend_endpoint}
 
-# Convert ObjectId to string in the response
-def convert_object_id_to_str(item):
-    item["_id"] = str(item["_id"])
-    return item
-
-# Create employee
+# Your CRUD endpoints go here
+# Example: Create employee
 @app.post("/employees", response_model=dict)
-async def create_employee(employee: dict):
-    try:
-        result = await employees_collection.insert_one(employee)
-        created_employee = await employees_collection.find_one({"_id": result.inserted_id})
-        return convert_object_id_to_str(created_employee)
-    except Exception as e:
-        print(f"Error creating employee: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+async def create_employee_endpoint(employee: dict):
+    return await create_employee(employee)
 
-# Read all employees
-@app.get("/employees", response_model=List[dict])
-async def get_all_employees(skip: int = 0, limit: int = 10):
-    try:
-        employees = await employees_collection.find().skip(skip).limit(limit).to_list(length=limit)
-        return list(map(convert_object_id_to_str, employees))
-    except Exception as e:
-        print(f"Error fetching employees: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+# Example: Get all employees
+@app.get("/employees", response_model=list)
+async def get_all_employees_endpoint(skip: int = 0, limit: int = 10):
+    return await get_all_employees(skip, limit)
 
-# Read a single employee by ID
+# Example: Get a single employee by ID
 @app.get("/employees/{employee_id}", response_model=dict)
-async def get_employee(employee_id: str):
-    try:
-        existing_employee = await employees_collection.find_one({"_id": ObjectId(employee_id)})
-        if existing_employee:
-            return convert_object_id_to_str(existing_employee)
-        raise HTTPException(status_code=404, detail=f"Employee with id {employee_id} not found")
-    except Exception as e:
-        print(f"Error fetching employee: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+async def get_employee_endpoint(employee_id: str):
+    return await get_employee(employee_id)
 
-# Update employee by ID
+# Example: Update employee by ID
 @app.put("/employees/{employee_id}", response_model=dict)
-async def update_employee(employee_id: str, updates: dict):
-    try:
-        await employees_collection.update_one({"_id": ObjectId(employee_id)}, {"$set": updates})
-        updated_employee = await employees_collection.find_one({"_id": ObjectId(employee_id)})
-        if updated_employee:
-            return convert_object_id_to_str(updated_employee)
-        raise HTTPException(status_code=404, detail=f"Employee with id {employee_id} not found")
-    except Exception as e:
-        print(f"Error updating employee: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+async def update_employee_endpoint(employee_id: str, updates: dict):
+    return await update_employee(employee_id, updates)
 
-# Delete employee by ID
+# Example: Delete employee by ID
 @app.delete("/employees/{employee_id}", response_model=dict)
-async def delete_employee(employee_id: str):
-    try:
-        deleted_employee = await employees_collection.find_one_and_delete({"_id": ObjectId(employee_id)})
-        if deleted_employee:
-            return convert_object_id_to_str(deleted_employee)
-        raise HTTPException(status_code=404, detail=f"Employee with id {employee_id} not found")
-    except Exception as e:
-        print(f"Error deleting employee: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+async def delete_employee_endpoint(employee_id: str):
+    return await delete_employee(employee_id)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
