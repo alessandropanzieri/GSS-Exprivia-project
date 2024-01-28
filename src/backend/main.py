@@ -19,32 +19,32 @@ app.add_middleware(
 # Astro frontend endpoint
 @app.get("/astro-frontend")
 async def astro_frontend():
-    # Replace 'YOUR_FRONTEND_ENDPOINT' with the actual endpoint provided by your colleague
+  
     frontend_endpoint = 'YOUR_FRONTEND_ENDPOINT'
     return {"astro_frontend_endpoint": frontend_endpoint}
 
 # Your CRUD endpoints go here
-# Example: Create employee
+# Create employee
 @app.post("/employees", response_model=dict)
 async def create_employee_endpoint(employee: dict):
     return await create_employee(employee)
 
-# Example: Get all employees
+#  Get all employees
 @app.get("/employees", response_model=list)
 async def get_all_employees_endpoint(skip: int = 0, limit: int = 10):
     return await get_all_employees(skip, limit)
 
-# Example: Get a single employee by ID
+#  Get a single employee by ID
 @app.get("/employees/{employee_id}", response_model=dict)
 async def get_employee_endpoint(employee_id: str):
     return await get_employee(employee_id)
 
-# Example: Update employee by ID
+#  Update employee by ID
 @app.put("/employees/{employee_id}", response_model=dict)
 async def update_employee_endpoint(employee_id: str, updates: dict):
     return await update_employee(employee_id, updates)
 
-# Example: Delete employee by ID
+#  Delete employee by ID
 @app.delete("/employees/{employee_id}", response_model=dict)
 async def delete_employee_endpoint(employee_id: str):
     return await delete_employee(employee_id)
