@@ -45,10 +45,10 @@ async def get_employee(employee_id: str):
         existing_employee = await employees_collection.find_one({"_id": ObjectId(employee_id)})
         if existing_employee:
             return convert_object_id_to_str(existing_employee)
-        raise
+        raise HTTPException(status_code=404, detail=f"Employee with id {employee_id} not found")
     except Exception as e:
         print(f"Error fetching employee: {str(e)}")
-        raise
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Update employee by ID
 async def update_employee(employee_id: str, updates: dict):
