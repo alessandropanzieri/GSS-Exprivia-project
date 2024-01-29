@@ -6,7 +6,7 @@ from typing import List
 # MongoDB connection
 try:
     client = AsyncIOMotorClient("mongodb://localhost:27017")
-    db = client["GSSDatabase"]
+    db = client["cluster.gss_db"]
     employees_collection = db["employees"]
     administrative_collection = db["administrative_collection"]
     event_collection = db["event_collection"]
