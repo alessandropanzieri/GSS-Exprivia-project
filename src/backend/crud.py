@@ -8,7 +8,7 @@ from fastapi import HTTPException
 try:
     client = AsyncIOMotorClient("mongodb://localhost:27017")
     db = client["cluster.gss_db"]
-    employees_collection = db["employees"]
+    employees_collection = db["employees_collection"]
     administrative_collection = db["administrative_collection"]
     event_collection = db["event_collection"]
     print("Connected to MongoDB")
