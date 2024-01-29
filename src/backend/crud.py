@@ -2,6 +2,7 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
 from typing import List
+from fastapi import HTTPException
 
 # MongoDB connection
 try:
