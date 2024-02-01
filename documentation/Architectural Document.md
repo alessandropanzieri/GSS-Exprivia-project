@@ -9,7 +9,7 @@ This project is done by Expriva Spa interns:
 
 We work together with Francesco Fornari, an offering and solutions architect in Exprivia.
 
-Francesco assisted us in simulating a real work project, which consisted of an employee management system for a fake company called Gamma Security Services.
+Francesco assisted us in simulating a real work project, which consisted of an employees management system for a fake company called Gamma Security Services.
 
 ## What is Gamma Security Services?
 
