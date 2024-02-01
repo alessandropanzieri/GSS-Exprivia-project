@@ -21,7 +21,7 @@ GSS is a worldwide military private security company (PMSC). For each *on* or *o
 - photography
 - contacts
 
-### as GSS worker
+### as GSS employee
 
 - Military rank
 - current assignment (e.g. mission commander in xxx)
