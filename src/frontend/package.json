@@ -1,15 +1,15 @@
 {
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/vercel": "^7.1.1",
-    "@fontsource-variable/roboto-slab": "^5.0.18",
-    "@fontsource/titillium-web": "^5.0.18",
-    "astro": "^4.1.1"
-  }
+    "scripts": {
+        "astro": "astro",
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview"
+    },
+    "dependencies": {
+        "astro": "^4.1.1",
+        "@astrojs/vercel": "^7.1.1",
+        "@fontsource/titillium-web": "^5.0.18",
+        "@fontsource-variable/roboto-slab": "^5.0.18"
+    }
 }
