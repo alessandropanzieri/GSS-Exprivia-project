@@ -19,28 +19,28 @@ def convert_object_id_to_str(item):
     return item
 
 # Create employee
-async def create_employee(employee: dict):
+def create_employee(employee: dict):
     try:
-        result = await employees_collection.insert_one(employee)
-        created_employee = await employees_collection.find_one({"_id": result.inserted_id})
+        result = employees_collection.insert_one(employee)
+        created_employee = employees_collection.find_one({"_id": result.inserted_id})
         return convert_object_id_to_str(created_employee)
     except Exception as e:
         print(f"Error creating employee: {str(e)}")
         raise
 
 # Read all employees
-async def get_all_employees(skip: int = 0, limit: int = 10):
+def get_all_employees(skip: int = 0, limit: int = 10):
     try:
-        employees = await employees_collection.find().skip(skip).limit(limit).to_list(length=limit)
+        employees = employees_collection.find().skip(skip).limit(limit).to_list(length=limit)
         return list(map(convert_object_id_to_str, employees))
     except Exception as e:
         print(f"Error fetching employees: {str(e)}")
         raise
 
 # Read a single employee by ID
-async def get_employee(employee_id: str):
+def get_employee(employee_id: str):
     try:
-        existing_employee = await employees_collection.find_one({"_id": ObjectId(employee_id)})
+        existing_employee = employees_collection.find_one({"_id": ObjectId(employee_id)})
         if existing_employee:
             return convert_object_id_to_str(existing_employee)
         raise HTTPException(status_code=404, detail=f"Employee with id {employee_id} not found")
@@ -49,10 +49,10 @@ async def get_employee(employee_id: str):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Update employee by ID
-async def update_employee(employee_id: str, updates: dict):
+def update_employee(employee_id: str, updates: dict):
     try:
-        await employees_collection.update_one({"_id": ObjectId(employee_id)}, {"$set": updates})
-        updated_employee = await employees_collection.find_one({"_id": ObjectId(employee_id)})
+        employees_collection.update_one({"_id": ObjectId(employee_id)}, {"$set": updates})
+        updated_employee = employees_collection.find_one({"_id": ObjectId(employee_id)})
         if updated_employee:
             return convert_object_id_to_str(updated_employee)
         raise
@@ -61,9 +61,9 @@ async def update_employee(employee_id: str, updates: dict):
         raise
 
 # Delete employee by ID
-async def delete_employee(employee_id: str):
+def delete_employee(employee_id: str):
     try:
-        deleted_employee = await employees_collection.find_one_and_delete({"_id": ObjectId(employee_id)})
+        deleted_employee = employees_collection.find_one_and_delete({"_id": ObjectId(employee_id)})
         if deleted_employee:
             return convert_object_id_to_str(deleted_employee)
         raise
@@ -72,28 +72,28 @@ async def delete_employee(employee_id: str):
         raise
 # Funzione per creare un dipendente amministrativo
 
-async def create_administrative(administrative: dict):
+def create_administrative(administrative: dict):
     try:
-        result = await administrative_collection.insert_one(administrative)
-        created_administrative = await administrative_collection.find_one({"_id": result.inserted_id})
+        result = administrative_collection.insert_one(administrative)
+        created_administrative = administrative_collection.find_one({"_id": result.inserted_id})
         return convert_object_id_to_str(created_administrative)
     except Exception as e:
         print(f"Error creating administrative employee: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per ottenere tutti i dipendenti amministrativi
-async def get_all_administrative(skip: int = 0, limit: int = 10):
+def get_all_administrative(skip: int = 0, limit: int = 10):
     try:
-        administrative_employees = await administrative_collection.find().skip(skip).limit(limit).to_list(length=limit)
+        administrative_employees = administrative_collection.find().skip(skip).limit(limit).to_list(length=limit)
         return list(map(convert_object_id_to_str, administrative_employees))
     except Exception as e:
         print(f"Error fetching administrative employees: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per ottenere un singolo dipendente amministrativo per ID
-async def get_administrative(administrative_id: str):
+def get_administrative(administrative_id: str):
     try:
-        existing_administrative = await administrative_collection.find_one({"_id": ObjectId(administrative_id)})
+        existing_administrative = administrative_collection.find_one({"_id": ObjectId(administrative_id)})
         if existing_administrative:
             return convert_object_id_to_str(existing_administrative)
         raise HTTPException(status_code=404, detail=f"Administrative employee with id {administrative_id} not found")
@@ -102,28 +102,28 @@ async def get_administrative(administrative_id: str):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per creare un evento
-async def create_event(event: dict):
+def create_event(event: dict):
     try:
-        result = await event_collection.insert_one(event)
-        created_event = await event_collection.find_one({"_id": result.inserted_id})
+        result = event_collection.insert_one(event)
+        created_event = event_collection.find_one({"_id": result.inserted_id})
         return convert_object_id_to_str(created_event)
     except Exception as e:
         print(f"Error creating event: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per ottenere tutti gli eventi
-async def get_all_events(skip: int = 0, limit: int = 10):
+def get_all_events(skip: int = 0, limit: int = 10):
     try:
-        events = await event_collection.find().skip(skip).limit(limit).to_list(length=limit)
+        events = event_collection.find().skip(skip).limit(limit).to_list(length=limit)
         return list(map(convert_object_id_to_str, events))
     except Exception as e:
         print(f"Error fetching events: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per ottenere un singolo evento per ID
-async def get_event(event_id: str):
+def get_event(event_id: str):
     try:
-        existing_event = await event_collection.find_one({"_id": ObjectId(event_id)})
+        existing_event = event_collection.find_one({"_id": ObjectId(event_id)})
         if existing_event:
             return convert_object_id_to_str(existing_event)
         raise HTTPException(status_code=404, detail=f"Event with id {event_id} not found")
@@ -132,9 +132,9 @@ async def get_event(event_id: str):
         raise HTTPException(status_code=500, detail="Internal Server Error")
     
 # Funzione per eliminare un dipendente amministrativo per ID
-async def delete_administrative(administrative_id: str):
+def delete_administrative(administrative_id: str):
     try:
-        result = await administrative_collection.delete_one({"_id": ObjectId(administrative_id)})
+        result = administrative_collection.delete_one({"_id": ObjectId(administrative_id)})
         if result.deleted_count:
             return {"message": "Administrative employee deleted successfully"}
         raise HTTPException(status_code=404, detail=f"Administrative employee with id {administrative_id} not found")
@@ -143,9 +143,9 @@ async def delete_administrative(administrative_id: str):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 # Funzione per eliminare un evento per ID
-async def delete_event(event_id: str):
+def delete_event(event_id: str):
     try:
-        result = await event_collection.delete_one({"_id": ObjectId(event_id)})
+        result = event_collection.delete_one({"_id": ObjectId(event_id)})
         if result.deleted_count:
             return {"message": "Event deleted successfully"}
         raise HTTPException(status_code=404, detail=f"Event with id {event_id} not found")
