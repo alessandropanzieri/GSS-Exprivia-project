@@ -3,14 +3,12 @@ from bson import ObjectId
 from fastapi import HTTPException
 from pymongo.mongo_client import MongoClient
 
-# MongoDB connection
 cluster = MongoClient("mongodb+srv://username:MrPssHYZc6X266Fc@cluster.ngvjtx4.mongodb.net/?retryWrites=true&w=majority")
 database = cluster.DATABASE
-print(database.list_collection_names())
+event_collection = database.event_collection
 employees_collection = database.employees_collection
-employees_collection.insert_one({"name": "panz"})
-administrative_collection = database["administrative_collection"]
-event_collection = database["event_collection"]
+administrative_collection = database.administrative_collection
+
 print("Connected to MongoDB")
 
 # Convert ObjectId to string in the response
@@ -18,7 +16,6 @@ def convert_object_id_to_str(item):
     item["_id"] = str(item["_id"])
     return item
 
-# Create employee
 def create_employee(employee: dict):
     try:
         result = employees_collection.insert_one(employee)
@@ -28,7 +25,6 @@ def create_employee(employee: dict):
         print(f"Error creating employee: {str(e)}")
         raise
 
-# Read all employees
 def get_all_employees(skip: int = 0, limit: int = 10):
     try:
         employees = employees_collection.find().skip(skip).limit(limit).to_list(length=limit)
@@ -37,7 +33,6 @@ def get_all_employees(skip: int = 0, limit: int = 10):
         print(f"Error fetching employees: {str(e)}")
         raise
 
-# Read a single employee by ID
 def get_employee(employee_id: str):
     try:
         existing_employee = employees_collection.find_one({"_id": ObjectId(employee_id)})
@@ -48,7 +43,6 @@ def get_employee(employee_id: str):
         print(f"Error fetching employee: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-# Update employee by ID
 def update_employee(employee_id: str, updates: dict):
     try:
         employees_collection.update_one({"_id": ObjectId(employee_id)}, {"$set": updates})
@@ -60,7 +54,6 @@ def update_employee(employee_id: str, updates: dict):
         print(f"Error updating employee: {str(e)}")
         raise
 
-# Delete employee by ID
 def delete_employee(employee_id: str):
     try:
         deleted_employee = employees_collection.find_one_and_delete({"_id": ObjectId(employee_id)})
