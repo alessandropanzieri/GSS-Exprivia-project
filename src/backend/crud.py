@@ -1,19 +1,17 @@
-# crud.py
-from motor.motor_asyncio import AsyncIOMotorClient
-from bson import ObjectId
 from typing import List
+from bson import ObjectId
 from fastapi import HTTPException
+from pymongo.mongo_client import MongoClient
 
 # MongoDB connection
-try:
-    client = AsyncIOMotorClient("mongodb://localhost:27017")
-    db = client["cluster.gss_db"]
-    employees_collection = db["employees_collection"]
-    administrative_collection = db["administrative_collection"]
-    event_collection = db["event_collection"]
-    print("Connected to MongoDB")
-except Exception as e:
-    print(f"Failed to connect to MongoDB: {str(e)}")
+cluster = MongoClient("mongodb+srv://username:MrPssHYZc6X266Fc@cluster.ngvjtx4.mongodb.net/?retryWrites=true&w=majority")
+database = cluster.DATABASE
+print(database.list_collection_names())
+employees_collection = database.employees_collection
+employees_collection.insert_one({"name": "panz"})
+administrative_collection = database["administrative_collection"]
+event_collection = database["event_collection"]
+print("Connected to MongoDB")
 
 # Convert ObjectId to string in the response
 def convert_object_id_to_str(item):
