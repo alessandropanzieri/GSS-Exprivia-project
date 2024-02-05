@@ -7,6 +7,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^7.1.1",
     "@fontsource-variable/roboto-slab": "^5.0.18",
     "@fontsource/titillium-web": "^5.0.18",
     "astro": "^4.1.1"
