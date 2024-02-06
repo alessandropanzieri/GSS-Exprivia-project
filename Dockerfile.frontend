@@ -1,0 +1,5 @@
+FROM node:20.11.0
+WORKDIR /app/frontend
+COPY ./src/frontend/ .
+RUN npm install
+RUN npm run build

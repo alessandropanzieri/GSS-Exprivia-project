@@ -2,7 +2,7 @@ from bson import ObjectId
 from fastapi import HTTPException
 from pymongo.mongo_client import MongoClient
 
-cluster = MongoClient("mongodb+srv://username:MrPssHYZc6X266Fc@cluster.ngvjtx4.mongodb.net/?retryWrites = true&w = majority")
+cluster = MongoClient("mongodb://localhost:27017")
 database = cluster.DATABASE
 events_collection = database.event_collection
 employees_collection = database.employees_collection
