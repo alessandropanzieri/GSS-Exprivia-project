@@ -1,6 +1,4 @@
 ---
-import "@fontsource/titillium-web";
-
 export interface Props {
     redirect?: string
     action?: string
@@ -28,9 +26,10 @@ const {
         top: 0;
         z-index: 1;
         width: 100%;
-        position: fixed;
+        margin-bottom: 5px;
         background-color: rgb(127, 255, 212);
-        filter: drop-shadow(0 0 0.15rem rgb(37, 42, 63));
+        font-family: "Titillium Web", sans-serif;
+        filter: drop-shadow(0 0 0.25rem rgb(37, 42, 63));
     }
 
     nav {
@@ -52,21 +51,6 @@ const {
         display: flex;
     }
 
-    input {
-        font-size: 15px;
-        font-family: "Titillium Web", sans-serif;
-    }
-
-    input:not(input[type = submit]) {
-        width: 100%;
-        padding-left: 7.5px;
-    }
-
-    input[type = submit] {
-        padding-left: 10px;
-        padding-right: 10px; 
-    }
-
     img {
         cursor: pointer;
         filter: drop-shadow(0 0 0.25rem rgb(37, 42, 63));
@@ -74,7 +58,6 @@ const {
 
     h2, a {
         color: rgb(37, 42, 63);
-        font-family: "Titillium Web", sans-serif;
     }
 
     h2 {
