@@ -43,16 +43,16 @@
                 <mxCell id="25" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;MODEL&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="200" y="400" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="returning &lt;br style=&quot;font-size: 9px;&quot;&gt;data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
+                <mxCell id="32" value="operation&lt;br&gt;result" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
                     <mxGeometry x="290" y="360" width="60" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="asking model&lt;br style=&quot;font-size: 9px;&quot;&gt;to provide&amp;nbsp;&lt;br style=&quot;font-size: 9px;&quot;&gt;data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
+                <mxCell id="34" value="asking model&lt;br style=&quot;font-size: 9px;&quot;&gt;to perform&lt;br&gt;operations" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
                     <mxGeometry x="155" y="355" width="80" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="request&lt;br style=&quot;font-size: 9px;&quot;&gt;process" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
                     <mxGeometry x="165" y="280" width="60" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="rendering&lt;br style=&quot;font-size: 9px;&quot;&gt;content&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
+                <mxCell id="38" value="response&lt;br&gt;data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
                     <mxGeometry x="290" y="280" width="60" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="user interaction" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;strokeWidth=1;fontSize=9;" parent="1" vertex="1">
@@ -61,8 +61,8 @@
                 <mxCell id="42" value="response from DB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=9;" parent="1" vertex="1">
                     <mxGeometry x="330" y="430" width="100" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="&lt;p style=&quot;line-height: 110%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;asking data from DB&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="325" y="375" width="110" height="50" as="geometry"/>
+                <mxCell id="43" value="&lt;p style=&quot;line-height: 110%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;perform operations on DB&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="375" width="130" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
