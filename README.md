@@ -1,3 +1,5 @@
+<style>body {text-align: justify;}</style>
+
 # Architectural Document
 
 This project is done by Expriva Spa interns:
@@ -13,7 +15,7 @@ Francesco assisted us in simulating a real work project, which consisted of an e
 
 ## What is Gamma Security Services?
 
-GSS is a worldwide military private security company (PMSC). For each *on* or *off* duty employee of its, registered in the management system, it is possible to view a personal card that presents all the following data:
+GSS is a worldwide military private security company (PMSC). For each *on* or *off* duty employee, registered in the management system, it is possible to view a personal card that presents all the following data:
 
 ### as person
 
@@ -66,7 +68,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
 - #### **DB - 01**
 
-  To store employees' data, a non-relational database is used.
+  To store employees' data, a non-relational database is used, such as MongoDB.
 
 - #### **DB - 02**
 
@@ -75,5 +77,17 @@ The system is usable via common web browsers, therefore end users haven't to ins
 - #### **DB - 03**
 
   Each document has a unique id, to search or update each employee's data.
+
+  ![ER model diagram](documentation/ER_model_diagram/ER_model.png)
+
+  *This is the ER (entity-relation) model diagram. It represents the schema of the collections used in our DB, including the document. Every operational employee has at least one event assigned. Every event is assigned to one and only operational employee. Since administrators don't have any events assigned to their careers, the administrator employee's collection is free from links to other collections.*
+
+## Architecture Diagram
+
+This diagram wants to show the customer how our web app works.
+
+![architecture diagram](documentation/architecture_diagram/architecture.png)
+
+Starting from the first interaction using the UI provided by the frontend, a request process is launched; once a request, the backend asks the model the operations to be performed on the database, which will return an operation result containing the data that will be then shown by the frontend directly to the user.
 
 ## Deployment
