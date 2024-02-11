@@ -1,5 +1,3 @@
-<style>body {text-align: justify;}</style>
-
 # Architectural Document
 
 This project is done by Expriva Spa interns:
