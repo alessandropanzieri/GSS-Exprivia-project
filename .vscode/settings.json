@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     ".vscode": true,
+    ".gitignore": true,
     "src\\frontend\\.astro": true,
     "src\\frontend\\package.json": true,
     "src\\frontend\\node_modules": true,
@@ -9,6 +10,6 @@
     "src\\frontend\\jsconfig.json": true,
     "src\\frontend\\astro.config.mjs": true,
     "src\\frontend\\package-lock.json": true,
-    "src\\backend\\models\\collections\\__pycache__": true,
+    "src\\backend\\models\\collections\\__pycache__": true
   }
 }
