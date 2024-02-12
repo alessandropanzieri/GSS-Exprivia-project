@@ -6,29 +6,29 @@ from schemas.employees import EmployeeSchema
 router = APIRouter()
 
 @router.post("/", response_model = EmployeeSchema)
-def create_employee(employee: EmployeeSchema):
+def create(employee: EmployeeSchema):
     created_employee = create_employee(employee.dict())
     if created_employee:
         return created_employee
 
 @router.get("/", response_model = List[EmployeeSchema])
-def read_employees(skip: int = 0, limit: int = 10):
+def get_all(skip: int = 0, limit: int = 10):
     return get_all_employees(skip, limit)
 
 @router.get("/{employee_id}", response_model = EmployeeSchema)
-def read_employee(employee_id: str):
+def get_by_id(employee_id: str):
     employee = get_employee_by_id(employee_id)
     if employee:
         return employee
 
 @router.put("/{employee_id}", response_model = EmployeeSchema)
-def update_employee(employee_id: str, employee: EmployeeSchema):
+def update(employee_id: str, employee: EmployeeSchema):
     updated_employee = update_employee(employee_id, employee.dict())
     if updated_employee:
         return updated_employee
 
 @router.delete("/{employee_id}")
-def delete_employee(employee_id: str):
+def delete(employee_id: str):
     result = delete_employee(employee_id)
     if result:
         return result
