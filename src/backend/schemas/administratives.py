@@ -1,7 +1,7 @@
-from pydantic import BaseModel
 from typing import Optional
+from pydantic import BaseModel
 
-class AdministrativeSchema(BaseModel):
+class AdminSchema(BaseModel):
     id: Optional[str]
 
     phone: str
