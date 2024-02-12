@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import APIRouter
-from schemas.admins import AdminSchema
+from schemas.administratives import AdminSchema
 from models.collections.administratives import *
 
 router = APIRouter()
