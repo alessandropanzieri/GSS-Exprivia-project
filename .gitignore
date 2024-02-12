@@ -1,4 +1,3 @@
-/.vscode
 /src/backend/*/__pycache__
 /src/frontend/node_modules
 /src/frontend/src/env.d.ts
