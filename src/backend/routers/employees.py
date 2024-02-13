@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.post("/", response_model = EmployeeSchema)
 def create(employee: EmployeeSchema):
-    created_employee = create_employee(employee.dict())
+    created_employee = create_employee(dict(employee))
     if created_employee:
         return created_employee
 

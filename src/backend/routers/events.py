@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.post("/", response_model = EventSchema)
 def create_event(event: EventSchema):
-    created_event = create_event(event.dict())
+    created_event = create_event(dict(event))
     if created_event:
         return created_event
 

@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.post("/", response_model = AdminSchema)
 def create(admin: AdminSchema):
-    created_admin = create_admin(admin.dict())
+    created_admin = create_admin(dict(admin))
     if created_admin:
         return created_admin
 
