@@ -2,11 +2,10 @@ from typing import Optional
 from pydantic import BaseModel
 
 class AdminSchema(BaseModel):
-    id: Optional[str]
-
-    phone: str
-    email: str
+    id: Optional[int]
+    first_name: str
     last_name: str
     birthdate: str
-    first_name: str
+    email: str
+    phone: str
     current_status: str

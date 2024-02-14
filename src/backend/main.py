@@ -9,4 +9,4 @@ app.include_router(administratives.router, prefix = "/administratives", tags = [
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app)
+    uvicorn.run("main:app", reload = True)

@@ -1,34 +1,27 @@
-from bson import ObjectId
 from ..database import get_database
 
 def create_event(event: dict):
     events_collection = get_database().get_collection("events_collection")
     result = events_collection.insert_one(event)
-    created_event = events_collection.find_one({"_id": result.inserted_id})
-    return created_event
+    return events_collection.find_one({"_id": result.inserted_id})
 
-def get_all_events(skip: int = 0, limit: int = 10):
+def get_all_events(skip: int, limit: int):
     events_collection = get_database().get_collection("events_collection")
-    events = events_collection.find().skip(skip).limit(limit).to_list(length = limit)
-    return events
+    return [event for event in events_collection.find().skip(skip).limit(limit)]
 
-def get_event_by_id(event_id: str):
+def get_event_by_id(event_id: int):
     events_collection = get_database().get_collection("events_collection")
-    existing_event = events_collection.find_one({"_id": ObjectId(event_id)})
-    if existing_event:
-        return existing_event
-    return None
+    try:
+        return events_collection.find_one({"id": event_id})
+    except:
+        return None
 
-def update_event(event_id: str, updated_event: dict):
+def update_event(event_id: int, updated_event: dict):
     events_collection = get_database().get_collection("events_collection")
-    result = events_collection.replace_one({"_id": ObjectId(event_id)}, updated_event)
-    if result.modified_count:
-        return events_collection.find_one({"_id": ObjectId(event_id)})
-    return None
+    events_collection.replace_one({"id": event_id}, updated_event)
+    return events_collection.find_one({"id": event_id})
 
 def delete_event(event_id: str):
     events_collection = get_database().get_collection("events_collection")
-    result = events_collection.delete_one({"_id": ObjectId(event_id)})
-    if result.deleted_count:
-        return {"message": "Event deleted successfully"}
-    return None
+    events_collection.delete_one({"id": event_id})
+    return {"message": "Event deleted successfully"}
