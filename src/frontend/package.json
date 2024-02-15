@@ -7,9 +7,13 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^4.3.5",
     "@astrojs/node": "^8.2.0",
+    "@fontsource-variable/roboto-slab": "^5.0.18",
     "@fontsource/titillium-web": "^5.0.18",
-    "@fontsource-variable/roboto-slab": "^5.0.18"
+    "astro": "^4.3.7",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29"
   }
 }

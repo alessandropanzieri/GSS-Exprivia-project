@@ -4,7 +4,6 @@
     "src\\.dockerignore": true,
     "src\\frontend\\.astro": true,
     "src\\backend\\__pycache__": true,
-    "src\\frontend\\package.json": true,
     "src\\frontend\\node_modules": true,
     "src\\backend\\*/__pycache__": true,
     "src\\frontend\\src\\env.d.ts": true,

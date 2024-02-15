@@ -1,11 +1,6 @@
 ---
 import "@fontsource/titillium-web";
 
-export interface Props {
-    title?: string
-    description?: string
-}
-
 const {
     title = "Gamma Security Services",
     description = "GSS (Gamma Security Services) is a worldwide military private security company (PMSC)."
@@ -21,7 +16,7 @@ const {
         <meta name = "generator" content = {Astro.generator}/>
         <link rel = "icon" type = "image/png" href = "/favicon.png"/>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1"/>
-        <script is:inline src = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script is:inline src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
         <slot/>

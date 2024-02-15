@@ -2,17 +2,6 @@
 import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-
-export async function getStaticPaths() {
-  return [
-    { params: { id: 1 } },
-    { params: { id: 2 } },
-    { params: { id: 3 } },
-    { params: { id: 4 } }
-  ];
-}
-
-const { id } = Astro.params;
 ---
 
 <Layout>

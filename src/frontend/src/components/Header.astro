@@ -1,9 +1,4 @@
 ---
-export interface Props {
-    redirect?: string
-    action?: string
-}
-
 const {
     redirect = "/login",
     action = "Login",
@@ -69,7 +64,7 @@ const {
 </style>
 
 <script>
-    $(function () {
+    $(() => {
         $("#logo").on("click", () => {
             window.location.href = "/";
         });

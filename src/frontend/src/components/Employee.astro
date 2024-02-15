@@ -1,11 +1,6 @@
 ---
 import "@fontsource/titillium-web";
 
-export interface Props {
-    id?: string
-    name?: string
-}
-
 const {
     id,
     name,
@@ -40,7 +35,7 @@ const {
 </style>
 
 <script>
-    $(function () {
+    $(() => {
         $(".employee").on("click", function() {
             window.location.href = `employee/${$(this).attr("id")}`;
         });

@@ -28,7 +28,7 @@ let employees = [
         </form>
         <div>{
             employees.map(info => (
-                <Employee id = `${info.id}` name = `${info.name}`/>
+                <Employee id = {info.id} name = {info.name}/>
             ))
         }</div>
     </main>
