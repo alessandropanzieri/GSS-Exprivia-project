@@ -2,12 +2,12 @@ from typing import Optional
 from pydantic import BaseModel
 
 class EmployeeSchema(BaseModel):
-    id: Optional[int]
-    first_name: str
-    last_name: str
-    birthdate: str
-    email: str
-    phone: str
-    current_status: str
-    rank: str
-    assignment: str
+    id: int
+    first_name: Optional[str]
+    last_name: Optional[str]
+    birthdate: Optional[str]
+    email: Optional[str]
+    phone: Optional[str]
+    current_status: Optional[str]
+    rank: Optional[str]
+    assignment: Optional[str]

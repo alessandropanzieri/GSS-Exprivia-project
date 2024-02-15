@@ -3,18 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Employee from "@components/Employee.astro";
 
-let employees = [
-    {name: "Alejandro Acosta", id: 1},
-    {name: "Alessandro Panzieri", id: 2},
-    {name: "Lorenzo Palombi", id: 3},
-    {name: "Matteo Carbone", id: 4},
-    {name: "Alessia Rossini", id: 5},
-    {name: "Luigi Bianchi", id: 6},
-    {name: "Mario Rossi", id: 7},
-    {name: "Bianca Verdi", id: 8},
-    {name: "Flavio Blu", id: 9},
-    {name: "Elisa Giallini", id: 10}
-];
+const response = await fetch("http://backend:8000/employees");
+const employees = await response.json();
 ---
 
 <Layout>
@@ -28,42 +18,42 @@ let employees = [
         </form>
         <div>{
             employees.map(info => (
-                <Employee id = {info.id} name = {info.name}/>
+                <Employee
+                    id = {info.id}
+                    first_name = {info.first_name}
+                    last_name = {info.last_name}
+                    current_status = {info.current_status}
+                    rank = {info.rank}/>
             ))
         }</div>
     </main>
 </Layout>
 
-<style>
-    #page {
-        margin: 0;
-        color: rgba(37, 42, 63, 0.65);
-    }
+<style lang = "sass">
+    #page
+        margin: 0
+        color: rgba(37, 42, 63, 0.65)
 
-    main {
-        padding: 10px 15px;
-    }
+    main
+        padding: 10px 15px
 
-    form {
-        gap: 10px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+    form
+        gap: 10px
+        width: 100%
+        display: flex
+        justify-content: center
 
-    input {
-        width: 100%;
-        font-size: 20px;
-        border-width: 2px;
-        padding-left: 25px;
-        border-radius: 90px;
-        outline-color: rgb(37, 42, 63);
-        font-family: "Titillium Web", sans-serif;
-    }
+    input
+        width: 100%
+        font-size: 20px
+        border-width: 2px
+        padding-left: 25px
+        border-radius: 90px
+        outline-color: rgb(37, 42, 63)
+        font-family: "Titillium Web", sans-serif
 
-    button {
-        border: none;
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0);
-    }
+    button
+        border: none
+        cursor: pointer
+        background-color: rgba(255, 255, 255, 0)
 </style>
