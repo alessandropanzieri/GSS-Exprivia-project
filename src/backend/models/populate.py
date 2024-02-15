@@ -1,15 +1,15 @@
 from pymongo.mongo_client import MongoClient
 
-cluster = MongoClient("mongodb+srv://username:dalEpB6lf0fPCucs@cluster.f653jhv.mongodb.net/?retryWrites=true&w=majority")
+cluster = MongoClient("mongodb://mongodb:27017")
 database = cluster.gss_db
 
 collections = database.list_collection_names()
 for collection in collections:
     database.drop_collection(collection)
 
-events_collection = database.events_collection
-employees_collection = database.employees_collection
-administratives_collection = database.administratives_collection
+events_collection = database.get_collection("events")
+employees_collection = database.get_collection("employees")
+administratives_collection = database.get_collection("administratives")
 
 events_collection.insert_many([
     {
