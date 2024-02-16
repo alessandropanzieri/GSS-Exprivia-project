@@ -3,8 +3,10 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Employee from "@components/Employee.astro";
 
-const response = await fetch("http://backend:8000/employees");
+let response = await fetch("http://backend:8000/employees");
 const employees = await response.json();
+response = await fetch("http://backend:8000/administratives");
+const administratives = await response.json();
 ---
 
 <Layout>
@@ -16,8 +18,20 @@ const employees = await response.json();
             <input type = "text" name = "search" placeholder = "Search for an employee..." required>
             <button type = "submit"><img src = "/search.png" alt = "search"></button>
         </form>
+        <h1>All Employees</h1>
         <div>{
             employees.map(info => (
+                <Employee
+                    id = {info.id}
+                    first_name = {info.first_name}
+                    last_name = {info.last_name}
+                    current_status = {info.current_status}
+                    rank = {info.rank}/>
+            ))
+        }</div>
+        <h1>Other Administratives</h1>
+        <div>{
+            administratives.map(info => (
                 <Employee
                     id = {info.id}
                     first_name = {info.first_name}
@@ -34,6 +48,11 @@ const employees = await response.json();
         margin: 0
         color: rgba(37, 42, 63, 0.65)
 
+    h1
+        margin: 20px
+        color: rgba(37, 42, 63, 0.65)
+        font-family: "Titillium Web", sans-serif
+
     main
         padding: 10px 15px
 
@@ -41,11 +60,12 @@ const employees = await response.json();
         gap: 10px
         width: 100%
         display: flex
+        margin-top: 20px
         justify-content: center
 
     input
         width: 100%
-        font-size: 20px
+        font-size: 15px
         border-width: 2px
         padding-left: 25px
         border-radius: 90px
