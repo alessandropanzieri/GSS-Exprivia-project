@@ -12,7 +12,7 @@
     "@fontsource/titillium-web": "^5.0.18",
     "astro": "^4.4.0",
     "jquery": "^3.7.1",
-    "sass": "^1.70.0"
+    "sass": "^1.71.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.29"
