@@ -11,7 +11,7 @@ const administratives = await response.json();
 
 <Layout>
     <Header redirect = "/" action = "Logout">
-        <h2 id = "page">Dashboard</h2>
+        <h2>Dashboard</h2>
     </Header>
     <main>
         <form action = "/search" method = "POST">
@@ -44,36 +44,37 @@ const administratives = await response.json();
 </Layout>
 
 <style lang = "sass">
-    #page
+    h2
         margin: 0
         color: rgba(37, 42, 63, 0.65)
-
-    h1
-        margin: 20px
-        color: rgba(37, 42, 63, 0.65)
-        font-family: "Titillium Web", sans-serif
 
     main
         padding: 10px 15px
 
-    form
-        gap: 10px
-        width: 100%
-        display: flex
-        margin-top: 20px
-        justify-content: center
+        form
+            gap: 10px
+            width: 100%
+            display: flex
+            margin-top: 20px
+            justify-content: center
 
-    input
-        width: 100%
-        font-size: 15px
-        border-width: 2px
-        padding-left: 25px
-        border-radius: 90px
-        outline-color: rgb(37, 42, 63)
-        font-family: "Titillium Web", sans-serif
+            input
+                width: 100%
+                font-size: 15px
+                border-width: 2px
+                padding-left: 25px
+                border-radius: 90px
+                outline-color: rgb(37, 42, 63)
+                font-family: "Titillium Web", sans-serif
 
-    button
-        border: none
-        cursor: pointer
-        background-color: rgba(255, 255, 255, 0)
+            
+            button
+                border: none
+                cursor: pointer
+                background-color: rgba(255, 255, 255, 0)
+
+        h1
+            margin: 20px
+            color: rgba(37, 42, 63, 0.65)
+            font-family: "Titillium Web", sans-serif
 </style>
