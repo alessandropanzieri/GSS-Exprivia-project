@@ -9,9 +9,9 @@ router = APIRouter()
 def create(event: EventSchema):
     return create_event(dict(event))
 
-@router.get("/", response_model = List[EventSchema])
-def get_all(skip: int = 0, limit: int = 10):
-    return get_all_events(skip, limit)
+@router.get("/{employee_id}", response_model = List[EventSchema])
+def get_all(employee_id: int, skip: int = 0):
+    return get_all_events(employee_id, skip)
 
 @router.get("/{event_id}", response_model = Union[EventSchema, None])
 def get_by_id(event_id: int):

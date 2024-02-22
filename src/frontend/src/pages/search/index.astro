@@ -18,8 +18,7 @@ const administratives = await response.json();
             <input type = "text" name = "search" placeholder = "Search for an employee..." required>
             <button type = "submit"><img src = "/search.png" alt = "search"></button>
         </form>
-        <h1>All Employees</h1>
-        <div>{
+        <h1>All Employees</h1>{
             employees.map(info => (
                 <Employee
                     id = {info.id}
@@ -27,10 +26,8 @@ const administratives = await response.json();
                     last_name = {info.last_name}
                     current_status = {info.current_status}
                     rank = {info.rank}/>
-            ))
-        }</div>
-        <h1>Other Administratives</h1>
-        <div>{
+            ))}
+        <h1>Other Administratives</h1>{
             administratives.map(info => (
                 <Employee
                     id = {info.id}
@@ -38,8 +35,7 @@ const administratives = await response.json();
                     last_name = {info.last_name}
                     current_status = {info.current_status}
                     rank = {info.rank}/>
-            ))
-        }</div>
+            ))}
     </main>
 </Layout>
 

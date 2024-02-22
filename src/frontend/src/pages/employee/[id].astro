@@ -1,7 +1,17 @@
 ---
 import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
+import Event from "@components/Event.astro";
 import Header from "@components/Header.astro";
+
+const {
+    id
+} = Astro.params
+
+let response = await fetch(`http://backend:8000/employees/${id}`);
+const employee = await response.json();
+response = await fetch(`http://backend:8000/events/${id}`);
+const events = await response.json();
 ---
 
 <Layout>
@@ -12,28 +22,21 @@ import Header from "@components/Header.astro";
         <div id = "employee">
             <img id = "profile" src = "/profile_large.png" alt = "profile picture">
             <div id = "a">
-                <h2 class = "info">NAME SURNAME</h2>
-                <h2 class = "info">Birthday:</h>
-                <h2 class = "info">Email:</h2>
-                <h2 class = "info">Mobile phone:</h2>
-                <h2 class = "info">Military rank:</h2>
-                <h2 class = "info">Current assignment:</h2>
-                <h2 class = "info">Current status:</h2>
+                <h2 class = "info">{employee.first_name} {employee.last_name}</h2>
+                <h2 class = "info">Birthday: {employee.birthdate}</h>
+                <h2 class = "info">Email: {employee.email}</h2>
+                <h2 class = "info">Mobile phone: {employee.phone}</h2>
+                <h2 class = "info">Military rank: {employee.rank}</h2>
+                <h2 class = "info">Current assignment: {employee.assignment}</h2>
+                <h2 class = "info">Current status: {employee.current_status}</h2>
                 <h2 id = "chronology">Chronology of service statuses</h2>
-                <table border = "1">
-                  <tr>
-                      <td><input type = "text" placeholder = "MISSIONE 1"></td>
-                      <td><input type = "text" placeholder = "gg/mm/yyyy"></td>
-                      <td><input type = "text" placeholder = "EDITABLE"></td>
-                      <td id = "delete"><img src = "/delete.png" alt = "delete"></td>
-                  </tr>
-                  <tr>
-                      <td><input type = "text" placeholder = "MISSIONE 2"></td>
-                      <td><input type = "text" placeholder = "gg/mm/yyyy"></td>
-                      <td><input type = "text" placeholder = "EDITABLE"></td>
-                      <td id = "delete"><img  src = "/delete.png" alt = "delete"></td>
-                  </tr>
-              </table>
+                <table border = "1">{
+                    events.map(event => (
+                        <Event
+                            date = {event.date}
+                            description = {event.description}/>
+                    ))}
+                </table>
             </div>
         </div>
         <img id = "bin" src = "/bin.png" alt = "bin">
@@ -74,15 +77,9 @@ import Header from "@components/Header.astro";
         margin: 15px 0
         font-family: "Titillium Web", sans-serif
 
-    td
-        padding: 0 2.5px
+    table
+        width: 100%
 
-    #delete
-        border: none
-
-    #bin, #delete img
+    #bin
         cursor: pointer
-
-    input
-        border: none
 </style>

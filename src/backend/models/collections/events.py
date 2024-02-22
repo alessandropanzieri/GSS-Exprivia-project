@@ -5,9 +5,9 @@ def create_event(event: dict):
     result = events_collection.insert_one(event)
     return events_collection.find_one({"_id": result.inserted_id})
 
-def get_all_events(skip: int, limit: int):
+def get_all_events(employee_id: int, skip: int):
     events_collection = get_database().get_collection("events")
-    return [event for event in events_collection.find().skip(skip).limit(limit)]
+    return [event for event in events_collection.find({"employee_id": employee_id}).skip(skip)]
 
 def get_event_by_id(event_id: int):
     events_collection = get_database().get_collection("events")
