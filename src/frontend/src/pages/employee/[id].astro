@@ -16,20 +16,20 @@ const events = await response.json();
 
 <Layout>
     <Header redirect = "/search" action = "Go back">
-        <h2 id = "page">Employee Info</h2>
+        <h2>Employee Info</h2>
     </Header>
     <main>
-        <div id = "employee">
-            <img id = "profile" src = "/profile_large.png" alt = "profile picture">
-            <div id = "a">
-                <h2 class = "info">{employee.first_name} {employee.last_name}</h2>
-                <h2 class = "info">Birthday: {employee.birthdate}</h>
-                <h2 class = "info">Email: {employee.email}</h2>
-                <h2 class = "info">Mobile phone: {employee.phone}</h2>
-                <h2 class = "info">Military rank: {employee.rank}</h2>
-                <h2 class = "info">Current assignment: {employee.assignment}</h2>
-                <h2 class = "info">Current status: {employee.current_status}</h2>
-                <h2 id = "chronology">Chronology of service statuses</h2>
+        <div>
+            <img src = "/profile_large.png" alt = "profile picture">
+            <div>
+                <h2>{employee.first_name} {employee.last_name}</h2>
+                <h2>Birthday: {employee.birthdate}</h>
+                <h2>Email: {employee.email}</h2>
+                <h2>Mobile phone: {employee.phone}</h2>
+                <h2>Military rank: {employee.rank}</h2>
+                <h2>Current assignment: {employee.assignment}</h2>
+                <h2>Current status: {employee.current_status}</h2>
+                <h2>Chronology of service statuses</h2>
                 <table border = "1">{
                     events.map(event => (
                         <Event
@@ -39,18 +39,13 @@ const events = await response.json();
                 </table>
             </div>
         </div>
-        <img id = "bin" src = "/bin.png" alt = "bin">
+        <img src = "/bin.png" alt = "bin">
     </main>
 </Layout>
 
 <style lang = "sass">
-    #page
+    h2
         margin: 0
-        color: rgba(37, 42, 63, 0.65)
-        font-family: "Titillium Web", sans-serif
-
-    #chronology
-        margin: 15px 0
         color: rgba(37, 42, 63, 0.65)
         font-family: "Titillium Web", sans-serif
 
@@ -60,26 +55,25 @@ const events = await response.json();
         align-items: flex-start
         justify-content: space-between
 
-    #employee
-        flex: 1
-        display: flex
-        align-items: flex-start
+        > div
+            flex: 1
+            display: flex
+            align-items: flex-start
 
-    #a
-        flex: 1
-        margin: 0 15px
-        overflow-y: auto
+            > img
+                width: 25%
 
-    #profile
-        width: 25%
+            > div
+                flex: 1
+                margin: 0 15px
+                overflow-y: auto
 
-    .info
-        margin: 15px 0
-        font-family: "Titillium Web", sans-serif
+                > h2
+                    margin: 15px 0
 
-    table
-        width: 100%
+                table
+                    width: 100%
 
-    #bin
-        cursor: pointer
+        > img
+            cursor: pointer
 </style>

@@ -4,13 +4,13 @@ services:
   mongodb:
     image: mongo
     ports:
-      - ${PORT}:27017
+      - 27017:27017
 
   backend:
     build:
       dockerfile: Dockerfile.backend
     ports:
-      - ${PORT}:8000
+      - 8000:8000
     depends_on:
       - mongodb
 
@@ -18,6 +18,6 @@ services:
     build:
       dockerfile: Dockerfile.frontend
     ports:
-      - ${PORT}:80
+      - 80:80
     depends_on:
       - backend
