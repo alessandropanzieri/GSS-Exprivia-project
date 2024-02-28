@@ -1,7 +1,8 @@
 FROM node:20.11.0
 WORKDIR /app/frontend
-COPY /frontend .
+COPY /frontend/package*.json ./
 RUN npm install
+COPY /frontend .
 RUN npm run build
 ENV HOST=0.0.0.0
 ENV PORT=80
