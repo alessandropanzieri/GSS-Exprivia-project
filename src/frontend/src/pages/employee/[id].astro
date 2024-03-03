@@ -4,9 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import Event from "@components/Event.astro";
 import Header from "@components/Header.astro";
 
-const {
-    id
-} = Astro.params
+const { id } = Astro.params;
 
 let response = await fetch(`http://backend:8000/employees/${id}`);
 const employee = await response.json();
@@ -15,35 +13,38 @@ const events = await response.json();
 ---
 
 <Layout>
-    <Header redirect = "/search" action = "Go back">
+    <Header redirect="/search" action="Go back">
         <h2>Employee Info</h2>
     </Header>
     <main>
         <div>
-            <img src = "/profile_large.png" alt = "profile picture">
+            <img src="/profile_large.png" alt="profile picture" />
             <div>
                 <h2>{employee.first_name} {employee.last_name}</h2>
-                <h2>Birthday: {employee.birthdate}</h>
+                <h2>Birthday: {employee.birthdate}</h2>
                 <h2>Email: {employee.email}</h2>
                 <h2>Mobile phone: {employee.phone}</h2>
                 <h2>Military rank: {employee.rank}</h2>
                 <h2>Current assignment: {employee.assignment}</h2>
                 <h2>Current status: {employee.current_status}</h2>
                 <h2>Chronology of service statuses</h2>
-                <table border = "1">{
-                    events.map(event => (
-                        <Event
-                            date = {event.date}
-                            description = {event.description}/>
-                    ))}
+                <table border="1">
+                    {
+                        events.map((event) => (
+                            <Event
+                                date={event.date}
+                                description={event.description}
+                            />
+                        ))
+                    }
                 </table>
             </div>
         </div>
-        <img src = "/bin.png" alt = "bin">
+        <img src="/bin.png" alt="bin" />
     </main>
 </Layout>
 
-<style lang = "sass">
+<style lang="sass">
     h2
         margin: 0
         color: rgba(37, 42, 63, 0.65)

@@ -3,27 +3,31 @@ import "@fontsource/titillium-web";
 
 const {
     title = "Gamma Security Services",
-    description = "GSS (Gamma Security Services) is a worldwide military private security company (PMSC)."
-} = Astro.props
+    description = "GSS (Gamma Security Services) is a worldwide military private security company (PMSC).",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang = "en">
+<!doctype html>
+<html lang="en">
     <head>
         <title>{title}</title>
-        <meta charset = "UTF-8"/>
-        <meta name = "description" content = {description}/>
-        <meta name = "generator" content = {Astro.generator}/>
-        <link rel = "icon" type = "image/png" href = "/favicon.png"/>
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1"/>
-        <script is:inline src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta
+            name="viewport"
+            content="width = device-width, initial-scale = 1"
+        />
+        <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"
+        ></script>
     </head>
     <body>
-        <slot/>
+        <slot />
     </body>
 </html>
 
-<style lang = "sass">
+<style lang="sass">
     html, body
         height: 100%
 

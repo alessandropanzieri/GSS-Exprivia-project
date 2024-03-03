@@ -1,22 +1,19 @@
 ---
-const {
-    redirect = "/login",
-    action = "Login",
-} = Astro.props
+const { redirect = "/login", action = "Login" } = Astro.props;
 ---
 
 <header>
     <nav>
         <div>
-            <img id = "logo" src = "/favicon.png" alt = "logo">
+            <img id="logo" src="/favicon.png" alt="logo" />
             <h2>Gamma Security Services</h2>
-            <slot/>
+            <slot />
         </div>
-        <a href = {redirect}>{action}</a>
+        <a href={redirect}>{action}</a>
     </nav>
 </header>
 
-<style lang = "sass">
+<style lang="sass">
     header
         width: 100%
         margin-bottom: 5px

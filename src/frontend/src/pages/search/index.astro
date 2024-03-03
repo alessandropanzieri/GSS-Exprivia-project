@@ -10,36 +10,46 @@ const administratives = await response.json();
 ---
 
 <Layout>
-    <Header redirect = "/" action = "Logout">
+    <Header redirect="/" action="Logout">
         <h2>Dashboard</h2>
     </Header>
     <main>
-        <form action = "/search" method = "POST">
-            <input type = "text" name = "search" placeholder = "Search for an employee..." required>
-            <button type = "submit"><img src = "/search.png" alt = "search"></button>
+        <form action="/search" method="POST">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search for an employee..."
+                required
+            />
+            <button type="submit"><img src="/search.png" alt="search" /></button
+            >
         </form>
         <h1>All Employees</h1>{
-            employees.map(info => (
+            employees.map((info) => (
                 <Employee
-                    id = {info.id}
-                    first_name = {info.first_name}
-                    last_name = {info.last_name}
-                    current_status = {info.current_status}
-                    rank = {info.rank}/>
-            ))}
+                    id={info.id}
+                    first_name={info.first_name}
+                    last_name={info.last_name}
+                    current_status={info.current_status}
+                    rank={info.rank}
+                />
+            ))
+        }
         <h1>Other Administratives</h1>{
-            administratives.map(info => (
+            administratives.map((info) => (
                 <Employee
-                    id = {info.id}
-                    first_name = {info.first_name}
-                    last_name = {info.last_name}
-                    current_status = {info.current_status}
-                    rank = {info.rank}/>
-            ))}
+                    id={info.id}
+                    first_name={info.first_name}
+                    last_name={info.last_name}
+                    current_status={info.current_status}
+                    rank={info.rank}
+                />
+            ))
+        }
     </main>
 </Layout>
 
-<style lang = "sass">
+<style lang="sass">
     h2
         margin: 0
         color: rgba(37, 42, 63, 0.65)
@@ -63,7 +73,6 @@ const administratives = await response.json();
                 outline-color: rgb(37, 42, 63)
                 font-family: "Titillium Web", sans-serif
 
-            
             button
                 border: none
                 cursor: pointer

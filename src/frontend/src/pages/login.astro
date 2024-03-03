@@ -4,17 +4,27 @@ import Header from "@components/Header.astro";
 ---
 
 <Layout>
-    <Header redirect = "/" action = "Home"/>
+    <Header redirect="/" action="Home" />
     <main>
-        <form action = "/search">
-            <input type = "text" name = "username" placeholder = "Username" required>
-            <input type = "password" name = "password" placeholder = "Password" required>
-            <button type = "submit">LOGIN</button>
+        <form action="/search">
+            <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+            />
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            />
+            <button class="j j j j j" type="submit">LOGIN</button>
         </form>
     </main>
 </Layout>
 
-<style lang = "sass">
+<style lang="sass">
     main
         height: 100%
         display: flex

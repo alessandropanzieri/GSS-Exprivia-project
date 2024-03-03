@@ -1,26 +1,20 @@
 ---
 import "@fontsource/titillium-web";
 
-const {
-    id,
-    first_name,
-    last_name,
-    current_status,
-    rank
-} = Astro.props
+const { id, first_name, last_name, current_status, rank } = Astro.props;
 ---
 
-<div class = "employee" id = {id}>
-    <div class = "picture">
-        <img src = "/profile_small.png" alt = "profile picture">
+<div class="employee" id={id}>
+    <div class="picture">
+        <img src="/profile_small.png" alt="profile picture" />
         <h1>{first_name} {last_name}</h1>
-        <h2 class = {current_status}>{current_status}</h2>
-        <h2 class = "rank">{rank}</h2>
+        <h2 class={current_status}>{current_status}</h2>
+        <h2 class="rank">{rank}</h2>
     </div>
-    <img src = "/open.png" alt = "open" />
+    <img src="/open.png" alt="open" />
 </div>
 
-<style lang = "sass">
+<style lang="sass">
     .employee
         display: flex
         cursor: pointer
@@ -48,7 +42,7 @@ const {
 
 <script>
     $(() => {
-        $(".employee").on("click", function() {
+        $(".employee").on("click", function () {
             window.location.href = `employee/${$(this).attr("id")}`;
         });
     });
