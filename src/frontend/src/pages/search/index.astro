@@ -5,8 +5,8 @@ import Employee from "@components/Employee.astro";
 
 let response = await fetch("http://backend:8000/employees");
 const employees = await response.json();
-response = await fetch("http://backend:8000/administratives");
-const administratives = await response.json();
+response = await fetch("http://backend:8000/administrators");
+const administrators = await response.json();
 ---
 
 <Layout>
@@ -35,8 +35,8 @@ const administratives = await response.json();
                 />
             ))
         }
-        <h1>Other Administratives</h1>{
-            administratives.map((info) => (
+        <h1>Other administrators</h1>{
+            administrators.map((info) => (
                 <Employee
                     id={info.id}
                     first_name={info.first_name}
