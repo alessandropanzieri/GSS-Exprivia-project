@@ -9,7 +9,7 @@ for collection in collections:
 
 events_collection = database.get_collection("events")
 employees_collection = database.get_collection("employees")
-administratives_collection = database.get_collection("administratives")
+administrators_collection = database.get_collection("administrators")
 
 events_collection.insert_many([
     {
@@ -136,7 +136,7 @@ employees_collection.insert_many([
     }
 ])
 
-administratives_collection.insert_many([
+administrators_collection.insert_many([
     {
         "id" : 1,
         "first_name" : "Giorgio",

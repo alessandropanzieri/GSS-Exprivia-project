@@ -1,7 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
 
-class AdministrativeSchema(BaseModel):
+class AdministratorSchema(BaseModel):
     id: int
     first_name: Optional[str]
     last_name: Optional[str]
