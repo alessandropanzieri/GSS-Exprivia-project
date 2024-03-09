@@ -1,6 +1,8 @@
-/src/backend/__pycache__
-/src/backend/*/__pycache__
-/src/frontend/node_modules
-/src/frontend/src/env.d.ts
-/src/frontend/package-lock.json
-/src/backend/models/collections/__pycache__
+.astro
+env.d.ts
+__pycache__
+node_modules
+jsconfig.json
+.dockerignore
+astro.config.mjs
+package-lock.json
