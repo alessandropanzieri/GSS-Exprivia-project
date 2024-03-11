@@ -82,14 +82,22 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
   - #### **Operator collection**
     "operator_id" :"007",
-        "first": "Clarissa",
-        "last":"Vicoli",
-        "birthdate":"17/08/1983",
-        "phone":"366 717 8886",
-        "email":"cvicoli@abc.com",
-        "rank":"captain",
-        "assignment":"captain at Rome regiment",
-        "current_status":"active"
+
+     "first": "Clarissa",
+
+    "last":"Vicoli",
+
+     "birthdate":"17/08/1983",
+
+     "phone":"366 717 8886",
+
+     "email":"cvicoli@abc.com",
+
+     "rank":"captain",
+
+    "assignment":"captain at Rome regiment",
+
+    "current_status":"active"
 
     - #### **Administrative collection**
        "admin_id" :"010",
