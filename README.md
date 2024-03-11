@@ -106,7 +106,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
     *"id"* : "01",\
     *"date"* : "12/06/2013",\
-    *"description"* : "command post n.1 at US military Airport in South Korea"
+    *"description"* : "command post n.1 at US military Airport in South Korea"\
     *"employee_id"* : "008"
 
 ## Architecture Diagram
