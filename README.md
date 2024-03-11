@@ -109,7 +109,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
         "last":"Manganello",
 
-         "birthdate":"15/11/1999",
+       "birthdate":"15/11/1999",
 
         "phone":"345 765 8882",
 
