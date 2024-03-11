@@ -10,7 +10,7 @@
     "@astrojs/node": "^8.2.3",
     "@fontsource-variable/roboto-slab": "^5.0.19",
     "@fontsource/titillium-web": "^5.0.19",
-    "astro": "^4.4.15",
+    "astro": "^4.5.0",
     "jquery": "^3.7.1",
     "sass": "^1.71.1"
   },

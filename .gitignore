@@ -1,8 +1,9 @@
 .astro
+.vscode
 env.d.ts
 __pycache__
+.mypy_cache
 node_modules
 jsconfig.json
-.dockerignore
 astro.config.mjs
 package-lock.json

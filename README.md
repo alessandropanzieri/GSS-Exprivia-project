@@ -80,55 +80,34 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
   This is the ER (entity-relation) model diagram. It represents the schema of the collections used in our DB, including the document. Every operational employee has at least one event assigned. Every event is assigned to one and only operational employee. Since administrators don't have any events assigned to their careers, the administrator employee's collection is free from links to other collections. Here we show some examples of collections stored in the DB:
 
-  - #### **Operator collection**
-    
-    "operator_id" :"007",
+  - #### ***Empoyees collection***
 
-     "first": "Clarissa",
+    *"id"* : "007",\
+    *"first_name"* : "Clarissa",\
+    *"last_name"* : "Vicoli",\
+    *"birthdate"* : "17/08/1983",\
+    *"email"* : "<cvicoli@abc.com>",\
+    *"phone"* : "366 717 8886",\
+    *"current_status"* : "active"\
+    *"rank"* : "captain",\
+    *"assignment"* : "captain at Rome regiment"
 
-    "last":"Vicoli",
+  - #### ***Administrators collection***
 
-     "birthdate":"17/08/1983",
+    *"id"* : "010",\
+    *"first_name"* : "Giorgio",\
+    *"last_name"* : "Manganello",\
+    *"birthdate"* : "15/11/1999",\
+    *"email"* : "<gmanganello@abc.com>",\
+    *"phone"* : "345 765 8882",\
+    *"current_status"* : "active"
 
-     "phone":"366 717 8886",
+  - #### ***Events collection***
 
-     "email":"cvicoli@abc.com",
-
-     "rank":"captain",
-
-    "assignment":"captain at Rome regiment",
-
-    "current_status":"active"
-
-
-   - #### **Administrative collection**
-
-        "admin_id" :"010",
-
-        "first": "Giorgio",
-
-        "last":"Manganello",
-
-       "birthdate":"15/11/1999",
-
-        "phone":"345 765 8882",
-
-       "email":"gmanganello@abc.com",
-
-        "current_status":"active"
-
-
-  - #### **Event collection**
-    
-    "event_id":"01",
-
-     "operator_id":"008",
-
-    "date":"12/06/2013",
-
-    "description":"command post n.1 at US military Airport in South Korea"
-
-       
+    *"id"* : "01",\
+    *"date"* : "12/06/2013",\
+    *"description"* : "command post n.1 at US military Airport in South Korea"
+    *"employee_id"* : "008"
 
 ## Architecture Diagram
 
