@@ -99,20 +99,32 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
     "current_status":"active"
 
-    - #### **Administrative collection**
-       "admin_id" :"010",
+
+     - #### **Administrative collection**
+
+        "admin_id" :"010",
+
         "first": "Giorgio",
+
         "last":"Manganello",
-        "birthdate":"15/11/1999",
+
+         "birthdate":"15/11/1999",
+
         "phone":"345 765 8882",
-        "email":"gmanganello@abc.com",
+
+       "email":"gmanganello@abc.com",
+
         "current_status":"active"
+
 
   - #### **Event collection**
     "event_id":"01",
-        "operator_id":"008",
-        "date":"12/06/2013",
-        "description":"command post n.1 at US military Airport in South Korea"
+
+     "operator_id":"008",
+
+    "date":"12/06/2013",
+
+    "description":"command post n.1 at US military Airport in South Korea"
 
        
 
