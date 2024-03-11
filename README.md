@@ -80,7 +80,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
   This is the ER (entity-relation) model diagram. It represents the schema of the collections used in our DB, including the document. Every operational employee has at least one event assigned. Every event is assigned to one and only operational employee. Since administrators don't have any events assigned to their careers, the administrator employee's collection is free from links to other collections. Here we show some examples of collections stored in the DB:
 
-  - #### ***Empoyees collection***
+  - #### **Empoyees collection**
 
     *"id"* : "007",\
     *"first_name"* : "Clarissa",\
@@ -92,7 +92,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
     *"rank"* : "captain",\
     *"assignment"* : "captain at Rome regiment"
 
-  - #### ***Administrators collection***
+  - #### **Administrators collection**
 
     *"id"* : "010",\
     *"first_name"* : "Giorgio",\
@@ -102,7 +102,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
     *"phone"* : "345 765 8882",\
     *"current_status"* : "active"
 
-  - #### ***Events collection***
+  - #### **Events collection**
 
     *"id"* : "01",\
     *"date"* : "12/06/2013",\
