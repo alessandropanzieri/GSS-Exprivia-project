@@ -119,27 +119,22 @@ Starting from the first interaction using the UI provided by the frontend, a req
 
 ## Deployment
 
-intro: Tramite la creazione di più macchine virtuali e l'impostazione di una connessione SSH, si vogliono simulare accessi da remoto alla macchina server che mette a disposizione il nostro servizio. Sulle macchine virtuali si è poi deciso di gestire i servizi frontend, backend e database containerizzandoli sfruttando Docker.
+### Intro
 
+By creating multiple virtual machines and setting up an SSH connection, we want to simulate remote access to the server machine that makes our service available. It was then decided to manage the virtual machines' frontend, backend and database services by containerizing them using Docker.
 
-Download e installazione della Macchina Virtuale:
-Come software per ospitare la Macchina Virtuale è stato scelto VirtualBox di Oracle. Si è voluto simulare un ambiente Linux con sistema operativo Debian (12.5, 64-bit).
-E' stata installata con memoria di base 2048 MB, quattro processori, 20 GB di archiviazione. La rete è stata impostata su Scheda con bridge.
+### Virtual Machine download and installation
 
+Oracle's VirtualBox was chosen as the software to host the Virtual Machine. We wanted to simulate a Linux environment with the Debian operating system (12.5 version, 64-bit). It was installed with 2048 MB base memory, 4 processors and 20 GB of storage. The network has been set to a Bridged Adapter.
 
-Configurazione e starting della VM: Una volta effettuato il primo accesso alla Machhina Virtuale, la si deve configurare. E' stata installata Debian GNU/Linux nella stessa.
-Vengono dunque impostati fuso orario, lingua, location, tastiera e Host Name. Viene impostata la password per l'utente root e creato un utente non root. 
-Viene infine configurato SSHD per permettere agli utenti di collegarsi tramite connessione SSH.
+### Virtual Machine configuration and starting
 
-Connessione SSH e accesso remoto con PuTTY:
+After accessing the Virtual Machine for the first time, this one must be configured. Therefore, the time zone, language, location, keyboard and Host Name are set. The password for the root user is set and a non-root user is created. Finally, SSHD (Secure Shell Host Daemon) is configured to allow users to connect via SSH connection.
 
-E' stata  configurata una connessione SSH (Secure Shell Host) tramite il programma PuTTY con cui è possibile effettuare dal proprio pc un accesso remoto, tramite terminale, alla Macchina Virtuale. Per accedervi sono necessari l'Host Name o l'indirizzo IP della macchina-server e il numero della porta hardware associata alle connessioni SSH (di default 22). Effettuato il login come root si prosegue con la configurazione vera e propria, installando Git, Vim e Docker.
+### SSH Connection and PuTTY remote access
 
-Installazione e utilizzo di Docker:
+An SSH connection has been configured via the PuTTY program that allows to remotely access the Virtual Machine from the PC via the command prompt. In order to access it, you need the Host Name or IP address of the server machine and the number of the hardware port associated with SSH connections (default 22). After logging in as root we continue the actual configuration by installing Git, Vim and Docker.
 
-Installando Docker sono stati suddivisi in container il componente frontend, quello di backend e il database.
-La containerizzazione di un'applicazione garantisce che ogni sua componente venga isolata dalle altre in virtuali container. Grazie a questo approccio è possibile dotare il sistema di una maggiore flessibilità.
-I container permettono di installare la nostra applicazione in piccoli ambienti isolati e controllati senza doverci curare dell'installazione del sistema operativo.
-E' possibile inoltre aggiungere o rimuovere istanze di container, per questioni di scalabilità, senza dover modificare le infrastrutture sottostanti; si può, ancora, riprodurre stessi ambienti di esecuzione su più ambienti, semplificando sviluppo, test e operazione del servizio.
+### Docker installation and uses
 
-
+By installing Docker, the frontend/backend components and the database were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
