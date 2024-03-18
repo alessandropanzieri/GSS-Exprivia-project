@@ -129,7 +129,7 @@ Oracle's VirtualBox was chosen as the software to host the Virtual Machine. We w
 
 ### Virtual Machine configuration and starting
 
-After accessing the Virtual Machine for the first time, this one must be configured. Therefore, the time zone, language, location, keyboard and Host Name are set. The password for the root user is set and a non-root user is created. Finally, SSHD (Secure Shell Host Daemon) is configured to allow users to connect via SSH connection.
+After accessing the Virtual Machine for the first time, this one must be configured. Therefore, the time zone, language, location, keyboard and Host Name are set. The password for the root user is set and a non-root user is created and added to the sudoers list. Finally, SSHD (Secure Shell Host Daemon) is configured to allow users to connect via SSH connection.
 
 ### SSH Connection and PuTTY remote access
 
@@ -138,3 +138,7 @@ An SSH connection has been configured via the PuTTY program that allows to remot
 ### Docker installation and uses
 
 By installing Docker, the frontend/backend components and the database were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
+
+![Docker Container Architecture](C:\Users\Palombi\Desktop\diagramma\docker-container-diagram_2.drawio.png)
+
+
