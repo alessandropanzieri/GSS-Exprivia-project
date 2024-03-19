@@ -139,7 +139,4 @@ An SSH connection has been configured via the PuTTY program that allows to remot
 
 By installing Docker, the frontend/backend components and the database were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
 
-
 ![Docker Container Architecture](documentation/docker_container_architecture/docker-container-diagram_2.drawio.png)
-
-

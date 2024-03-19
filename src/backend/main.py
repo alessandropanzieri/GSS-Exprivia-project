@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import administrators, employees, events
+from routes import administrators, employees, events
 
 app = FastAPI()
 
