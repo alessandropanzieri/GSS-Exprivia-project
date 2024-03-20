@@ -25,7 +25,7 @@
   - frontend
   - database
 
-### Con quali tecnologie abbiamo deciso di lavorare
+### Come funzionano le tecnologie scelte
 
 - GitHub
 - FastAPI
