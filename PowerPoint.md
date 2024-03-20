@@ -2,7 +2,7 @@
 
 ### ITS
 
-- Come funziona il corso ITS
+- Cosa abbiamo svolto durante il periodo delle lezioni
 - Come funziona lo stage
   - Durata totale
   - Orari di lavoro
