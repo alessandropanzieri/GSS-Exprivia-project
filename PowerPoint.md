@@ -6,6 +6,7 @@
 - Come funziona lo stage
   - Durata totale
   - Orari di lavoro
+  - Il nostro team
 
 ### Di cosa si occupa Exprivia
 
