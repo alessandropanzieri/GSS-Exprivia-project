@@ -11,7 +11,7 @@
 
 - I vari dipartimenti di cui è composto
 - I vari progetti di cui si occupa ogni dipartimento
-- Che ruolo ricopre il nostro tutor aziendale
+- Che ruolo ricopre il nostro tutor aziendale all'interno di Exprivia
 - Di cosa si occupa il nostro dipartimento
 
 # Introduzione Progetto
@@ -19,7 +19,7 @@
 ### Su cosa ci è stato proposto di lavorare
 
 - Di cosa si occupa Gamma Security Services
-- Come ci siamo suddivisi il lavoro
+- Come ci siamo suddivisi il lavoro da svolgere
   - backend
   - frontend
   - database
@@ -54,19 +54,19 @@
 ### Come abbiamo utilizzato MongoDB
 
 - Istanza locale
-- Diagramma ER
+- Spiegazione diagramma ER
 
 ### Come abbiamo utilizzato VirtualBox
 
 - Cos'è Linux
   - Debian come sistema operativo scelto
-- Connessione SSH
+- Cos'è una connessione SSH
   - PuTTY come client scelto
 
 ### Come abbiamo utilizzato Docker e Docker Compose
 
 - Spiegazione Dockerfile.backend e Dockerfile.frontend
-  - Keywords utilizzate
+  - Come e perchè delle keywords utilizzate
 - Spiegazione dei servizi terzi in docker-compose.yml
 
 ### Come abbiamo utilizzato Keycloak
