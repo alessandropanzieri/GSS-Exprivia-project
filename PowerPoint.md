@@ -8,10 +8,10 @@
   - Orari di lavoro
   - Il nostro team
 
-### Di cosa si occupa Exprivia
+### Exprivia
 
-- I vari dipartimenti di cui è composto
-- Che ruolo ricopre il nostro tutor aziendale all'interno di Exprivia
+- I vari dipartimenti di cui è composta
+- Che ruolo ricopre il nostro tutor aziendale
 - Di cosa si occupa il nostro dipartimento
 
 # Analisi dei Requisiti e Architettura
