@@ -1,10 +1,41 @@
 version: "3.8"
 
+volumes:
+  postgres_data:
+      driver: local
+
 services:
   mongodb:
     image: mongo
     ports:
       - 27017:27017
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    depends_on:
+      - mongodb
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: password
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
 
   backend:
     build:
@@ -12,7 +43,7 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - mongodb
+      - keycloak
 
   frontend:
     build:
