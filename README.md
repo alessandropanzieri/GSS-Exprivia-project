@@ -27,7 +27,7 @@ GSS is a worldwide military private security company (PMSC). For each *on* or *o
 - current status (in service/resigned/fired/retired)
 - chronology of service statuses, associated with a date
 
-Only some users of the system have the possibility to create, modify or delete employee's data, while all others only have the possibility to consult them.
+Only some users of the system have the possibility to create, modify or delete employee's data, while all others only can consult them.
 
 The system is usable via common web browsers, therefore end users haven't to install any software on their workstations. To ensure its maintainability, the system has been developed using cutting-edge technologies and the architecture has an approach open to new features.
 
