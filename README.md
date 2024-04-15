@@ -2,7 +2,6 @@
 
 This project is done by Expriva Spa interns:
 
-- Alejandro Acosta
 - Alessandro Panzieri
 - Lorenzo Palombi
 - Matteo Carbone
