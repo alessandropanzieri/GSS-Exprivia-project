@@ -1,7 +1,4 @@
-.astro
-env.d.ts
 __pycache__
+.mypy_cache
 node_modules
-jsconfig.json
-astro.config.mjs
 package-lock.json

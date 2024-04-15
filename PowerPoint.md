@@ -44,10 +44,10 @@
 - FastAPI
 - Astro Web Framework
 - MongoDB
+- Keycloak
 - Linux e Shell Scripting
 - VirtualBox
 - Docker e Docker Compose
-- Keycloak
 
 ### Come abbiamo utilizzato FastAPI (Matteo)
 
@@ -69,12 +69,17 @@
 - Istanza locale
 - Spiegazione diagramma ER
 
+### Come abbiamo utilizzato Keycloak
+
+- Autenticazione al sito
+- Autorizzazioni
+
 ### Come abbiamo utilizzato Linux e VirtualBox
 
 - Cos'è Linux
   - Debian
   - Cos'è una connessione SSH
-    - PuTTY come client scelto
+    - PuTTY
 - Cos'è un virtualizzatore
   - VirtualBox
 
@@ -85,13 +90,9 @@
   - Come e perchè delle keywords utilizzate
 - Spiegazione dei servizi terzi in docker-compose.yml
 
-### Come abbiamo utilizzato Keycloak
-
-- Autenticazione al sito
-- Autorizzazione
-
 # Conclusione
 
 - Aspettative post-diploma
-- Ringraziamenti e domande
-- Demo (registrata o live)
+- Domande
+- Demo registrata
+- Ringraziamenti

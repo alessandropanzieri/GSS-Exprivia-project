@@ -7,11 +7,13 @@ volumes:
 services:
   mongodb:
     image: mongo
+    container_name: mongodb
     ports:
       - 27017:27017
 
   postgres:
     image: postgres
+    container_name: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -23,6 +25,7 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:legacy
+    container_name: keycloak
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
@@ -40,6 +43,7 @@ services:
   backend:
     build:
       dockerfile: Dockerfile.backend
+    container_name: backend
     ports:
       - 8000:8000
     depends_on:
@@ -48,6 +52,7 @@ services:
   frontend:
     build:
       dockerfile: Dockerfile.frontend
+    container_name: frontend
     ports:
       - 80:80
     depends_on:
