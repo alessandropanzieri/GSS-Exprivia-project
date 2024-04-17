@@ -1,98 +1,100 @@
-# Introduzione Generale
+# General Introduction
 
-### ITS
+### ITS Academy Lazio Digital
 
-- Cosa abbiamo svolto durante il periodo delle lezioni
-- Come funziona lo stage
-  - Durata totale
-  - Orari di lavoro
-  - Il nostro team
+- What we did during the lessons
+  - Subjects
+  - Exams
+- How the internship works
+  - Total duration
+  - Daily hours
+  - Our team
 
-### Exprivia
+### Exprivia Spa
 
-- I vari dipartimenti di cui è composta
-- Che ruolo ricopre il nostro tutor aziendale
-- Di cosa si occupa il nostro dipartimento
+- The several departments whose consists of
+- The role of our company tutor
+- What our department deals with
 
-# Analisi dei Requisiti e Architettura
+# Project Requirements Analysis and Architecture
 
-### Analisi del testo contenente i requisiti utente
+### User requirements text analysis
 
-- Di cosa si occupa Gamma Security Services (GSS)
+- What Gamma Security Services (GSS) deals with
 
-### Creazione del documento dei requisiti di sistema
+### System requirements document creation
 
-- Elenco dei vari requisiti codificati
+- List of several coded requirements
 
-### Definizione dell'architettura attraverso i diagrammi
+### Architecture definition through diagrams
 
-- Diagramma architetturale
-- Diagramma ER
-- Diagramma di deployment
+- Architecture diagram
+- ER diagram
+- Deployment diagram
 
-# Implementazione del Progetto
+# Project Implementation
 
-### Come ci siamo suddivisi il lavoro da svolgere
+### Work tasks
 
-- Backend (Matteo)
 - Frontend (Alessandro)
+- Backend (Matteo)
 - Database (Lorenzo)
 
-### Tecnologie scelte
+### Tech stack
 
 - GitHub
-- FastAPI
 - Astro Web Framework
+- FastAPI
 - MongoDB
 - Keycloak
-- Linux e Shell Scripting
+- Linux and Shell Scripting
 - VirtualBox
-- Docker e Docker Compose
+- Docker and Docker Compose
+  
+### How we used Astro Web Framework
 
-### Come abbiamo utilizzato FastAPI (Matteo)
+- Site pages
+  - Home
+  - Login
+  - Administrator dashboard
+  - Employee profile
 
-- Ripartizione degli ambiti
+### How we used FastAPI
+
+- Areas distribution
   - Models
   - Schemas
   - Routes
 
-### Come abbiamo utilizzato Astro Web Framework (Alessandro)
+### How we used MongoDB
 
-- Le pagine di cui è composto il sito
-  - Home
-  - Login
-  - Dashboard amministratore
-  - Profilo dipendente
+- Local instance
+- ER diagram explanation
 
-### Come abbiamo utilizzato MongoDB (Lorenzo)
+### How we used Keycloak
 
-- Istanza locale
-- Spiegazione diagramma ER
+- User authentication
+- User authorizations
 
-### Come abbiamo utilizzato Keycloak
+### How we used Linux and VirtualBox
 
-- Autenticazione al sito
-- Autorizzazioni
-
-### Come abbiamo utilizzato Linux e VirtualBox
-
-- Cos'è Linux
+- What Linux is
   - Debian
-  - Cos'è una connessione SSH
+  - What an SSH connection is
     - PuTTY
-- Cos'è un virtualizzatore
+- What a virtualizer is
   - VirtualBox
 
-### Come abbiamo utilizzato Docker e Docker Compose
+### How we used Docker and Docker Compose
 
-- Cosa si intende per containerizzazione
-- Spiegazione Dockerfile.backend e Dockerfile.frontend
-  - Come e perchè delle keywords utilizzate
-- Spiegazione dei servizi terzi in docker-compose.yml
+- What is meant by "containerization"
+- Dockerfile.backend and Dockerfile.frontend explanation
+  - How and why of the keywords used
+- docker-compose.yml third-party services explanation
 
-# Conclusione
+# Conclusion
 
-- Aspettative post-diploma
-- Domande
-- Demo registrata
-- Ringraziamenti
+- Post-diploma expectations
+- Q & A
+- Recorded demo
+- Thanks
