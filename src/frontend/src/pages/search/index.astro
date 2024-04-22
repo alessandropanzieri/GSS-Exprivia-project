@@ -10,7 +10,7 @@ const administrators = await response.json();
 ---
 
 <Layout>
-    <Header redirect="/" action="Logout">
+    <Header action="logout">
         <h2>Dashboard</h2>
     </Header>
     <main>
@@ -83,3 +83,14 @@ const administrators = await response.json();
             color: rgba(37, 42, 63, 0.65)
             font-family: "Titillium Web", sans-serif
 </style>
+
+<script>
+    import keycloak from "@lib/keycloak";
+    keycloak.init({ onLoad: "login-required" });
+
+    $(() => {
+        $("#logout").on("click", function () {
+            keycloak.logout({ redirectUri: "http://localhost:4321/" });
+        });
+    });
+</script>

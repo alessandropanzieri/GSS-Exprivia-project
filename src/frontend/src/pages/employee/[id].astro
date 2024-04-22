@@ -78,3 +78,8 @@ const events = await response.json();
         > img
             cursor: pointer
 </style>
+
+<script>
+    import keycloak from "@lib/keycloak";
+    keycloak.init({ onLoad: "login-required" });
+</script>
