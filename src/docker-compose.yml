@@ -24,13 +24,13 @@ services:
   keycloak:
     image: quay.io/keycloak/keycloak:legacy
     environment:
-      DB_VENDOR: POSTGRES
       DB_ADDR: postgres
-      DB_DATABASE: keycloak
       DB_USER: keycloak
       DB_SCHEMA: public
-      DB_PASSWORD: password
+      DB_VENDOR: POSTGRES
       KEYCLOAK_USER: admin
+      DB_DATABASE: keycloak
+      DB_PASSWORD: password
       KEYCLOAK_PASSWORD: password
     ports:
       - 8080:8080
