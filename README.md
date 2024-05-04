@@ -75,7 +75,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
   Each document has a unique id, to search or update each employee's data.
 
-  ![ER model diagram](documentation/ER_model_diagram/ER_model.png)
+  ![ER model diagram](doc/ER_model_diagram/ER_model.png)
 
   This is the ER (entity-relation) model diagram. It represents the schema of the collections used in our DB, including the document. Every operational employee has at least one event assigned. Every event is assigned to one and only operational employee. Since administrators don't have any events assigned to their careers, the administrator employee's collection is free from links to other collections. Here we show some examples of collections stored in the DB:
 
@@ -112,7 +112,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
 This diagram wants to show the customer how our web app works.
 
-![architecture diagram](documentation/architecture_diagram/architecture.png)
+![architecture diagram](doc/architecture_diagram/architecture.png)
 
 Starting from the first interaction using the UI provided by the frontend, a request process is launched; once a request, the backend asks the model the operations to be performed on the database, which will return an operation result containing the data that will be then shown by the frontend directly to the user.
 
@@ -138,4 +138,4 @@ An SSH connection has been configured via the PuTTY program that allows to remot
 
 By installing Docker, the frontend/backend components and the database were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
 
-![Docker Container Architecture](documentation/docker_container_architecture/docker-container-diagram_2.drawio.png)
+![Docker Container Architecture](doc/docker_container_architecture/docker-container-diagram_2.drawio.png)
