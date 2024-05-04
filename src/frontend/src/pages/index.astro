@@ -47,7 +47,7 @@ import Footer from "@components/Footer.astro";
 
     $(() => {
         $("#login").on("click", function () {
-            keycloak.login({ redirectUri: "http://localhost:4321/search" });
+            keycloak.login({ redirectUri: "http://frontend:4321/search" });
         });
     });
 </script>

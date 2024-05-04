@@ -22,18 +22,23 @@ services:
       - mongodb
 
   keycloak:
-    image: quay.io/keycloak/keycloak:legacy
+    image: quay.io/keycloak/keycloak
     environment:
       DB_ADDR: postgres
       DB_USER: keycloak
       DB_SCHEMA: public
       DB_VENDOR: POSTGRES
-      KEYCLOAK_USER: admin
       DB_DATABASE: keycloak
       DB_PASSWORD: password
-      KEYCLOAK_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      # KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/certificate.crt
+      # KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/private.key
+    # volumes:
+    #   - ./ssl:/opt/keycloak/conf
     ports:
       - 8080:8080
+    command: start-dev
     depends_on:
       - postgres
 

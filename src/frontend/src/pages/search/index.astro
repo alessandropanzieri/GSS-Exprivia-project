@@ -90,7 +90,7 @@ const administrators = await response.json();
 
     $(() => {
         $("#logout").on("click", function () {
-            keycloak.logout({ redirectUri: "http://localhost:4321/" });
+            keycloak.logout({ redirectUri: "http://frontend:4321/" });
         });
     });
 </script>
