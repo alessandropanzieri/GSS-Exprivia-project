@@ -2,3 +2,4 @@ pymongo == 4.6.1
 pydantic == 2.6.1
 fastapi == 0.105.0
 uvicorn == 0.27.0.post1
+fastapi-keycloak == 1.0.10
