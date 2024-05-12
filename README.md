@@ -139,3 +139,8 @@ An SSH connection has been configured via the PuTTY program that allows to remot
 By installing Docker, the frontend/backend components and the database were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
 
 ![Docker Container Architecture](doc/docker_container_architecture/docker-container-diagram_2.drawio.png)
+
+
+### Keycloak
+
+L'ultima installazione effettuata riguarda Keycloak, un servizio containerizzabile che permette di configurare un vero e proprio sistema di autenticazione per gli utenti registrati nel portale GSS. Keycloak funge da server di autenticazione delegando quest'ultima a fonti esterne e fornendo token di accesso alle applicazioni richiedenti. La configurazione del sistema di autenticazione è disponibile attraverso una dashboard di amministrazione personalizzabile. Permette di attribuire agli utenti vari ruoli, che permetteranno a loro volta l'accesso a diverse aree dell'app web. Gli utenti admin pertanto, a differenza degli utenti operatori, saranno in grado di accedere sia alla loro personale scheda, sia a quella degli altri dipendenti.
