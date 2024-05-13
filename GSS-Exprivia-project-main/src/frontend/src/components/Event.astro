@@ -1,0 +1,23 @@
+---
+import "@fontsource/titillium-web";
+
+const { date, description } = Astro.props;
+---
+
+<tr>
+    <td><input type="text" value={date} /></td>
+    <td><input type="text" value={description} /></td>
+    <td id="delete"><img src="/delete.png" alt="delete" /></td>
+</tr>
+
+<style lang="sass">
+    td
+        padding: 0 2.5px
+
+    #delete
+        border: none
+
+    input
+        border: none
+        font-family: "Titillium Web", sans-serif
+</style>

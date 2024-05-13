@@ -1,0 +1,85 @@
+---
+import "@fontsource/titillium-web";
+import Layout from "@layouts/Layout.astro";
+import Event from "@components/Event.astro";
+import Header from "@components/Header.astro";
+
+const { id } = Astro.params;
+
+let response = await fetch(`http://backend:8000/employees/${id}`);
+const employee = await response.json();
+response = await fetch(`http://backend:8000/events/${id}`);
+const events = await response.json();
+---
+
+<Layout>
+    <Header redirect="/search" action="Go back">
+        <h2>Employee Info</h2>
+    </Header>
+    <main>
+        <div>
+            <img src="/profile_large.png" alt="profile picture" />
+            <div>
+                <h2>{employee.first_name} {employee.last_name}</h2>
+                <h2>Birthday: {employee.birthdate}</h2>
+                <h2>Email: {employee.email}</h2>
+                <h2>Mobile phone: {employee.phone}</h2>
+                <h2>Military rank: {employee.rank}</h2>
+                <h2>Current assignment: {employee.assignment}</h2>
+                <h2>Current status: {employee.current_status}</h2>
+                <h2>Chronology of service statuses</h2>
+                <table border="1">
+                    {
+                        events.map((event) => (
+                            <Event
+                                date={event.date}
+                                description={event.description}
+                            />
+                        ))
+                    }
+                </table>
+            </div>
+        </div>
+        <img src="/bin.png" alt="bin" />
+    </main>
+</Layout>
+
+<style lang="sass">
+    h2
+        margin: 0
+        color: rgba(37, 42, 63, 0.65)
+        font-family: "Titillium Web", sans-serif
+
+    main
+        display: flex
+        padding: 10px 15px
+        align-items: flex-start
+        justify-content: space-between
+
+        > div
+            flex: 1
+            display: flex
+            align-items: flex-start
+
+            > img
+                width: 25%
+
+            > div
+                flex: 1
+                margin: 0 15px
+                overflow-y: auto
+
+                > h2
+                    margin: 15px 0
+
+                table
+                    width: 100%
+
+        > img
+            cursor: pointer
+</style>
+
+<script>
+    import keycloak from "@lib/keycloak";
+    keycloak.init({ onLoad: "login-required" });
+</script>

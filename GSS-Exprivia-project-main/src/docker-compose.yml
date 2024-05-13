@@ -1,0 +1,69 @@
+version: "3.8"
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    depends_on:
+      - mongodb
+
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    environment:
+      DB_ADDR: postgres
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_VENDOR: POSTGRES
+      DB_DATABASE: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      # KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/certificate.crt
+      # KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/private.key
+    # volumes:
+    #   - ./ssl:/opt/keycloak/conf
+    ports:
+      - 8080:8080
+    command: start-dev
+    depends_on:
+      - postgres
+
+  backend:
+    build:
+      dockerfile: Dockerfile.backend
+    ports:
+      - 8000:8000
+    depends_on:
+      - keycloak
+
+  frontend:
+    build:
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 4321:4321
+    depends_on:
+      - backend
+
+  # nginx:
+  #   image: nginx
+  #   volumes:
+  #     - ./ssl:/etc/nginx/ssl
+  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  #   ports:
+  #     - 443:443
+  #   depends_on:
+  #     - frontend

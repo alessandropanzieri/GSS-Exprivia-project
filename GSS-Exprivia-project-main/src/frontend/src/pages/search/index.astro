@@ -1,0 +1,96 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Employee from "@components/Employee.astro";
+
+let response = await fetch("http://backend:8000/employees");
+const employees = await response.json();
+response = await fetch("http://backend:8000/administrators");
+const administrators = await response.json();
+---
+
+<Layout>
+    <Header action="logout">
+        <h2>Dashboard</h2>
+    </Header>
+    <main>
+        <form action="/search" method="POST">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search for an employee..."
+                required
+            />
+            <button type="submit"><img src="/search.png" alt="search" /></button
+            >
+        </form>
+        <h1>All Employees</h1>{
+            employees.map((info) => (
+                <Employee
+                    id={info.id}
+                    first_name={info.first_name}
+                    last_name={info.last_name}
+                    current_status={info.current_status}
+                    rank={info.rank}
+                />
+            ))
+        }
+        <h1>Other administrators</h1>{
+            administrators.map((info) => (
+                <Employee
+                    id={info.id}
+                    first_name={info.first_name}
+                    last_name={info.last_name}
+                    current_status={info.current_status}
+                    rank={info.rank}
+                />
+            ))
+        }
+    </main>
+</Layout>
+
+<style lang="sass">
+    h2
+        margin: 0
+        color: rgba(37, 42, 63, 0.65)
+
+    main
+        padding: 10px 15px
+
+        form
+            gap: 10px
+            width: 100%
+            display: flex
+            margin-top: 20px
+            justify-content: center
+
+            input
+                width: 100%
+                font-size: 15px
+                border-width: 2px
+                padding-left: 25px
+                border-radius: 90px
+                outline-color: rgb(37, 42, 63)
+                font-family: "Titillium Web", sans-serif
+
+            button
+                border: none
+                cursor: pointer
+                background-color: rgba(255, 255, 255, 0)
+
+        h1
+            margin: 20px
+            color: rgba(37, 42, 63, 0.65)
+            font-family: "Titillium Web", sans-serif
+</style>
+
+<script>
+    import keycloak from "@lib/keycloak";
+    keycloak.init({ onLoad: "login-required" });
+
+    $(() => {
+        $("#logout").on("click", function () {
+            keycloak.logout({ redirectUri: "http://frontend:4321/" });
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+---
+import "@fontsource-variable/roboto-slab";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<Layout>
+    <Header />
+    <main>
+        <div>
+            <p>A Worldwide Private Service</p>
+            <p>We Guarantee Your Security.</p>
+        </div>
+        <Footer />
+    </main>
+</Layout>
+
+<style lang="sass">
+    main
+        padding: 0 5px 5px 5px
+
+        div
+            height: 85vh
+            display: flex
+            overflow: hidden
+            margin-bottom: 5px
+            background-size: cover
+            flex-direction: column
+            justify-content: center
+            background-repeat: no-repeat
+            background-image: url("/background.png")
+
+            p
+                margin: 0
+                left: 125px
+                font-size: 50px
+                position: relative
+                color: rgb(255, 255, 255)
+                font-family: "Roboto Slab Variable", serif
+                filter: drop-shadow(0 0 0.5rem rgb(37, 42, 63))
+</style>
+
+<script>
+    import keycloak from "@lib/keycloak";
+    keycloak.init({});
+
+    $(() => {
+        $("#login").on("click", function () {
+            keycloak.login({ redirectUri: "http://frontend:4321/search" });
+        });
+    });
+</script>
