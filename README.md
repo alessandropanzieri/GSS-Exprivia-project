@@ -1,6 +1,6 @@
 # Architectural Document
 
-This project is done by Expriva Spa interns:
+This project is done by Expriva SpA interns:
 
 - Alessandro Panzieri
 - Lorenzo Palombi
@@ -35,43 +35,43 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
 ### Frontend
 
-- #### **FE - 01**
+- **FE - 01**
 
   The user interface allows users to navigate employees' data.
 
-- #### **FE - 02**
+- **FE - 02**
 
   The user interface allows to filter the user research by department, years of service, etc...
 
-- #### **FE - 03**
+- **FE - 03**
 
   The user interface allows users to modify these employees' data.
 
-- #### **FE - 04**
+- **FE - 04**
 
   The system exposes an authentication mechanism based on JWT tokens to ensure that only authenticated users can do the above actions.
 
 ### Backend
 
-- #### **BE - 01**
+- **BE - 01**
 
   The backend system is based on REST-API, ensuring access to employees' data.
 
-- #### **BE - 02**
+- **BE - 02**
 
   The backend system exposes an authentication mechanism based on JWT tokens to protect employees' data.
 
 ### Database
 
-- #### **DB - 01**
+- **DB - 01**
 
   To store employees' data, a non-relational database is used, such as MongoDB.
 
-- #### **DB - 02**
+- **DB - 02**
 
   Each document contains employees' data.
 
-- #### **DB - 03**
+- **DB - 03**
 
   Each document has a unique id, to search or update each employees' data.
 
@@ -79,7 +79,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
   This is the ER (entity-relation) model diagram. It represents the schema of the collections used in our DB, including the document. Every operational employee has at least one event assigned. Every event is assigned to one and only operational employee. Since administrators don't have any events assigned to their careers, the administrator employee's collection is free from links to other collections. Here we show some examples of collections stored in the DB:
 
-  - #### **Empoyees collection**
+  - **Empoyees collection**
 
     *"id"* : "007",\
     *"first_name"* : "Clarissa",\
@@ -91,7 +91,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
     *"rank"* : "captain",\
     *"assignment"* : "captain at Rome regiment"
 
-  - #### **Administrators collection**
+  - **Administrators collection**
 
     *"id"* : "010",\
     *"first_name"* : "Giorgio",\
@@ -101,7 +101,7 @@ The system is usable via common web browsers, therefore end users haven't to ins
     *"phone"* : "345 765 8882",\
     *"current_status"* : "active"
 
-  - #### **Events collection**
+  - **Events collection**
 
     *"id"* : "01",\
     *"date"* : "12/06/2013",\
@@ -110,11 +110,11 @@ The system is usable via common web browsers, therefore end users haven't to ins
 
 ### Authentication
 
-- #### **AU - 01**
+- **AU - 01**
 
   The identity provider provides an admin dashboard to configure the authentication process.
 
-- #### **AU - 02**
+- **AU - 02**
 
   The identity provider allows users to login through email and password.
 
@@ -146,4 +146,4 @@ An SSH connection has been configured via the PuTTY program that allows to remot
 
 By installing Docker, the frontend/backend components, the database and the indentity provider were divided into containers. Web app containerization ensures that each component is isolated from the others in a virtual container. Thanks to this approach it is possible to provide the system with greater flexibility. Containers allow us to install our application in small, isolated and controlled environments without having to worry about installing the operating system. It is also possible to add or remove container instances for scalability reasons, without modifying the underlying infrastructures. Reproducing the same execution environments on multiple environments, simplifying the development, testing and operation of the service is also possible.
 
-![Docker Container Architecture](doc/docker_container_architecture/docker-container-keycloak.drawio.png)
+![Docker Container Architecture](doc/docker_container_architecture/docker-container-keycloak.png)

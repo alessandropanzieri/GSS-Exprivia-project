@@ -10,12 +10,12 @@
     "@astrojs/node": "^8.2.5",
     "@fontsource-variable/roboto-slab": "^5.0.20",
     "@fontsource/titillium-web": "^5.0.20",
-    "astro": "^4.7.1",
+    "astro": "^4.8.3",
     "jquery": "^3.7.1",
-    "keycloak-js": "^24.0.3",
-    "sass": "^1.76.0"
+    "keycloak-js": "^24.0.4",
+    "sass": "^1.77.1"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.29"
+    "@types/jquery": "^3.5.30"
   }
 }

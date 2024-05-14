@@ -1,6 +1,10 @@
+from os import getenv
+from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 
-cluster = MongoClient("mongodb://mongodb:27017")
+load_dotenv()
+
+cluster = MongoClient(getenv("MONGODB_SERVER_URL"))
 database = cluster.gss_db
 
 collections = database.list_collection_names()

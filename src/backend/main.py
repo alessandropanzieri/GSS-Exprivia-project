@@ -1,7 +1,11 @@
+from os import getenv
+from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
 from fastapi_keycloak import FastAPIKeycloak
 from fastapi.middleware.cors import CORSMiddleware
 from routes import events, employees, administrators
+
+load_dotenv()
 
 app = FastAPI()
 app.add_middleware(
@@ -13,12 +17,12 @@ app.add_middleware(
 )
 
 idp = FastAPIKeycloak(
-    realm = "GSS",
-    client_id = "GSS",
-    server_url = "http://keycloak:8080/",
-    callback_uri = "http://backend:8000/docs",
-    client_secret = "5RPPSMwANsWE0fXTIyC5qXIfNKSu6P7f",
-    admin_client_secret = "k53cbpQE7B2qRL1j9qoOSexHLHnOB6xE"
+    realm = getenv("KEYCLOAK_REALM"),
+    client_id = getenv("KEYCLOAK_CLIENT_ID"),
+    server_url = getenv("KEYCLOAK_SERVER_URL"),
+    callback_uri = getenv("KEYCLOAK_CALLBACK_URI"),
+    client_secret = getenv("KEYCLOAK_CLIENT_SECRET"),
+    admin_client_secret = getenv("KEYCLOAK_ADMIN_CLIENT_SECRET")
 )
 idp.add_swagger_config(app)
 

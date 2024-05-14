@@ -10,7 +10,7 @@
   - Daily hours
   - Our team
 
-### Exprivia Spa
+### Exprivia SpA
 
 - The several departments whose consists of
 - The role of our company tutor

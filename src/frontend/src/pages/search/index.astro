@@ -3,9 +3,9 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Employee from "@components/Employee.astro";
 
-let response = await fetch("http://backend:8000/employees");
+let response = await fetch(`${import.meta.env.BACKEND_SERVER_UR}/employees`);
 const employees = await response.json();
-response = await fetch("http://backend:8000/administrators");
+response = await fetch(`${import.meta.env.BACKEND_SERVER_URL}/administrators`);
 const administrators = await response.json();
 ---
 
@@ -90,7 +90,9 @@ const administrators = await response.json();
 
     $(() => {
         $("#logout").on("click", function () {
-            keycloak.logout({ redirectUri: "http://frontend:4321/" });
+            keycloak.logout({
+                redirectUri: import.meta.env.FRONTEND_SERVER_URL,
+            });
         });
     });
 </script>
