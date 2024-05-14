@@ -42,12 +42,9 @@ import Footer from "@components/Footer.astro";
 </style>
 
 <script>
-    import keycloak from "@lib/keycloak";
-    keycloak.init({});
-
     $(() => {
         $("#login").on("click", function () {
-            keycloak.login({ redirectUri: "http://frontend:4321/search" });
+            window.location.href = "/search";
         });
     });
 </script>
