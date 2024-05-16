@@ -3,4 +3,4 @@ WORKDIR /backend
 COPY /backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY /backend .
-CMD python3 models/populate.py && uvicorn main:app --host ${BACKEND_HOST} --port ${BACKEND_PORT}
+CMD python3 models/populate.py && uvicorn main:app --host ${HOST} --port ${PORT}

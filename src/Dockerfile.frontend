@@ -4,5 +4,4 @@ COPY /frontend/package*.json ./
 RUN npm install
 COPY /frontend .
 RUN npm run build
-ENV HOST=${FRONTEND_HOST}
 CMD node ./dist/server/entry.mjs

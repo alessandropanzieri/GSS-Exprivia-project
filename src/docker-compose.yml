@@ -1,58 +1,75 @@
 volumes:
   postgres_data:
     driver: local
+  jenkins_home:
 
 services:
   mongodb:
     image: mongo
     ports:
-      - ${MONGODB_PORT}:27017
+      - 27017:27017
 
   postgres:
     image: postgres
-    env_file:
-      - path: .env
-      - path: .env.override
-        required: false
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   keycloak:
     image: quay.io/keycloak/keycloak
-    env_file:
-      - path: .env
-      - path: .env.override
-        required: false
-    # volumes:
-    #   - ./ssl:/opt/keycloak/conf
+    environment:
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_ADDR: postgres
+      DB_VENDOR: POSTGRES
+      DB_DATABASE: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
     ports:
-      - ${KEYCLOAK_PORT}:8080
+      - 8080:8080
     command: start-dev
 
   backend:
     build:
       dockerfile: Dockerfile.backend
-    env_file:
-      - path: .env
-      - path: .env.override
-        required: false
+    environment:
+      PORT: 8000
+      HOST: 0.0.0.0
+      SSL_KEYFILE: /backend/ssl/private.key
+      SSL_CERTFILE: /backend/ssl/certificate.crt
+      MONGODB_SERVER_URL: mongodb://mongodb:27017/
+      KEYCLOAK_REALM: GSS
+      KEYCLOAK_CLIENT_ID: GSS
+      KEYCLOAK_SERVER_URL: http://keycloak:8080/
+      KEYCLOAK_CALLBACK_URI: http://backend:8000/docs
+      KEYCLOAK_CLIENT_SECRET: k3v9rJM1dxlURjWVl9BppMAgNZaQchTk
+      KEYCLOAK_ADMIN_CLIENT_SECRET: 8r0xgFmrqCCby0FpMzX0f50JDZa39c8c
+    volumes:
+      - ./ssl:/backend/ssl
     ports:
-      - ${BACKEND_PORT}:8000
+      - 8000:8000
 
   frontend:
     build:
       dockerfile: Dockerfile.frontend
-    env_file:
-      - path: .env
-      - path: .env.override
-        required: false
+    environment:
+      PORT: 443
+      HOST: 0.0.0.0
+      SERVER_KEY_PATH: /frontend/ssl/private.key
+      SERVER_CERT_PATH: /frontend/ssl/certificate.crt
+      KEYCLOAK_SERVER_URL: http://keycloak:8080/
+    volumes:
+      - ./ssl:/frontend/ssl
     ports:
-      - ${FRONTEND_PORT}:4321
+      - 443:443
 
-  # nginx:
-  #   image: nginx
+  # jenkins:
+  #   image: jenkins/jenkins
   #   volumes:
-  #     - ./ssl:/etc/nginx/ssl
-  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  #     - jenkins_home:/var/jenkins_home
   #   ports:
-  #     - 443:443
+  #     - 8080:8080
