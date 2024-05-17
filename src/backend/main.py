@@ -1,11 +1,8 @@
 from os import getenv
-from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
 from fastapi_keycloak import FastAPIKeycloak
 from fastapi.middleware.cors import CORSMiddleware
 from routes import events, employees, administrators
-
-load_dotenv()
 
 app = FastAPI()
 app.add_middleware(

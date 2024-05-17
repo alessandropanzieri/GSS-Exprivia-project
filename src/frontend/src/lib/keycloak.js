@@ -3,7 +3,7 @@ import Keycloak from "keycloak-js";
 const keycloak = new Keycloak({
     realm: "GSS",
     clientId: "GSS",
-    url: import.meta.env.KEYCLOAK_SERVER_URL
+    url: "http://keycloak:8080/"
 });
 
 export default keycloak;

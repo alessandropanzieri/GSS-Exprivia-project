@@ -1,12 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import Employee from "@components/Employee.astro";
-
-let response = await fetch(`${import.meta.env.BACKEND_SERVER_UR}/employees`);
-const employees = await response.json();
-response = await fetch(`${import.meta.env.BACKEND_SERVER_URL}/administrators`);
-const administrators = await response.json();
 ---
 
 <Layout>
@@ -24,32 +18,15 @@ const administrators = await response.json();
             <button type="submit"><img src="/search.png" alt="search" /></button
             >
         </form>
-        <h1>All Employees</h1>{
-            employees.map((info) => (
-                <Employee
-                    id={info.id}
-                    first_name={info.first_name}
-                    last_name={info.last_name}
-                    current_status={info.current_status}
-                    rank={info.rank}
-                />
-            ))
-        }
-        <h1>Other administrators</h1>{
-            administrators.map((info) => (
-                <Employee
-                    id={info.id}
-                    first_name={info.first_name}
-                    last_name={info.last_name}
-                    current_status={info.current_status}
-                    rank={info.rank}
-                />
-            ))
-        }
+        <h1>All Employees</h1>
+        <h1>Other administrators</h1>
     </main>
 </Layout>
 
 <style lang="sass">
+    .hidden
+        display: hidden
+
     h2
         margin: 0
         color: rgba(37, 42, 63, 0.65)
@@ -86,13 +63,41 @@ const administrators = await response.json();
 
 <script>
     import keycloak from "@lib/keycloak";
-    keycloak.init({ onLoad: "login-required" });
 
     $(() => {
-        $("#logout").on("click", function () {
-            keycloak.logout({
-                redirectUri: import.meta.env.FRONTEND_SERVER_URL,
+        keycloak
+            .init({ onLoad: "login-required" })
+            .then(function (authenticated) {
+                if (authenticated) {
+                    $(".hidden").removeClass("hidden");
+                }
             });
+
+        $("#logout").on("click", function () {
+            keycloak.logout({ redirectUri: "/" });
         });
     });
 </script>
+
+<!-- {
+    employees.map((info) => (
+        <Employee
+            id={info.id}
+            first_name={info.first_name}
+            last_name={info.last_name}
+            current_status={info.current_status}
+            rank={info.rank}
+        />
+    ))
+}
+{
+    administrators.map((info) => (
+        <Employee
+            id={info.id}
+            first_name={info.first_name}
+            last_name={info.last_name}
+            current_status={info.current_status}
+            rank={info.rank}
+        />
+    ))
+} -->

@@ -39,8 +39,6 @@ services:
     environment:
       PORT: 8000
       HOST: 0.0.0.0
-      SSL_KEYFILE: /backend/ssl/private.key
-      SSL_CERTFILE: /backend/ssl/certificate.crt
       MONGODB_SERVER_URL: mongodb://mongodb:27017/
       KEYCLOAK_REALM: GSS
       KEYCLOAK_CLIENT_ID: GSS
@@ -48,8 +46,6 @@ services:
       KEYCLOAK_CALLBACK_URI: http://backend:8000/docs
       KEYCLOAK_CLIENT_SECRET: k3v9rJM1dxlURjWVl9BppMAgNZaQchTk
       KEYCLOAK_ADMIN_CLIENT_SECRET: 8r0xgFmrqCCby0FpMzX0f50JDZa39c8c
-    volumes:
-      - ./ssl:/backend/ssl
     ports:
       - 8000:8000
 
@@ -57,19 +53,13 @@ services:
     build:
       dockerfile: Dockerfile.frontend
     environment:
-      PORT: 443
       HOST: 0.0.0.0
-      SERVER_KEY_PATH: /frontend/ssl/private.key
-      SERVER_CERT_PATH: /frontend/ssl/certificate.crt
-      KEYCLOAK_SERVER_URL: http://keycloak:8080/
-    volumes:
-      - ./ssl:/frontend/ssl
     ports:
-      - 443:443
+      - 4321:4321
 
   # jenkins:
   #   image: jenkins/jenkins
   #   volumes:
   #     - jenkins_home:/var/jenkins_home
   #   ports:
-  #     - 8080:8080
+  #     - 8081:8080
