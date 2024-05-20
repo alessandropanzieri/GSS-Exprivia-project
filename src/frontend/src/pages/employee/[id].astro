@@ -1,15 +1,9 @@
 ---
 import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
-import Event from "@components/Event.astro";
 import Header from "@components/Header.astro";
 
 const { id } = Astro.params;
-
-let response = await fetch(`${import.meta.env.BACKEND_SERVER_URL}/employees/${id}`);
-const employee = await response.json();
-response = await fetch(`${import.meta.env.BACKEND_SERVER_URL}/events/${id}`);
-const events = await response.json();
 ---
 
 <Layout>
@@ -17,32 +11,84 @@ const events = await response.json();
         <h2>Employee Info</h2>
     </Header>
     <main>
-        <div>
+        <div id={id} class="employee">
             <img src="/profile_large.png" alt="profile picture" />
             <div>
-                <h2>{employee.first_name} {employee.last_name}</h2>
-                <h2>Birthday: {employee.birthdate}</h2>
-                <h2>Email: {employee.email}</h2>
-                <h2>Mobile phone: {employee.phone}</h2>
-                <h2>Military rank: {employee.rank}</h2>
-                <h2>Current assignment: {employee.assignment}</h2>
-                <h2>Current status: {employee.current_status}</h2>
                 <h2>Chronology of service statuses</h2>
-                <table border="1">
-                    {
-                        events.map((event) => (
-                            <Event
-                                date={event.date}
-                                description={event.description}
-                            />
-                        ))
-                    }
-                </table>
+                <table id="events" border="1"></table>
             </div>
         </div>
         <img src="/bin.png" alt="bin" />
     </main>
 </Layout>
+
+<script>
+    import keycloak from "@lib/keycloak";
+
+    $(() => {
+        keycloak
+            .init({ onLoad: "login-required" })
+            .then(function (authenticated) {
+                if (authenticated) {
+                    fetch(
+                        `http://backend:8000/employees/${$(".employee").attr("id")}`,
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${keycloak.token}`,
+                            },
+                        },
+                    )
+                        .then((response) => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                        })
+                        .then((data) => {
+                            console.log(data);
+                            $(".employee").html(`
+                                <h2>${data.first_name} ${data.last_name}</h2>
+                                <h2>Birthday: ${data.birthdate}</h2>
+                                <h2>Email: ${data.email}</h2>
+                                <h2>Mobile phone: ${data.phone}</h2>
+                                <h2>Military rank: ${data.rank}</h2>
+                                <h2>Current assignment: ${data.assignment}</h2>
+                                <h2>Current status: ${data.current_status}</h2>
+                            `);
+                        });
+
+                    fetch(
+                        `http://backend:8000/events/${$(".employee").attr("id")}`,
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${keycloak.token}`,
+                            },
+                        },
+                    )
+                        .then((response) => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                        })
+                        .then((data) => {
+                            console.log(data);
+                            data.map((info) =>
+                                $("#events").html(`
+                                    <tr>
+                                        <td><input type="text" value=${info.date} /></td>
+                                        <td><input type="text" value=${info.description} /></td>
+                                        <td id="delete"><img src="/delete.png" alt="delete" /></td>
+                                    </tr>
+                                `),
+                            );
+                        });
+
+                    $("body").css("display", "flex");
+                }
+            });
+    });
+</script>
 
 <style lang="sass">
     h2
@@ -75,11 +121,16 @@ const events = await response.json();
                 table
                     width: 100%
 
+                    td
+                        padding: 0 2.5px
+
         > img
             cursor: pointer
-</style>
 
-<script>
-    import keycloak from "@lib/keycloak";
-    keycloak.init({ onLoad: "login-required" });
-</script>
+    #delete
+        border: none
+
+    input
+        border: none
+        font-family: "Titillium Web", sans-serif
+</style>

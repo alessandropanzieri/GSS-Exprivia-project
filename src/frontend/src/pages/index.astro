@@ -16,6 +16,16 @@ import Footer from "@components/Footer.astro";
     </main>
 </Layout>
 
+<script>
+    $(() => {
+        $("body").css("display", "flex");
+
+        $("#login").on("click", function () {
+            window.location.href = "/search";
+        });
+    });
+</script>
+
 <style lang="sass">
     main
         padding: 0 5px 5px 5px
@@ -40,11 +50,3 @@ import Footer from "@components/Footer.astro";
                 font-family: "Roboto Slab Variable", serif
                 filter: drop-shadow(0 0 0.5rem rgb(37, 42, 63))
 </style>
-
-<script>
-    $(() => {
-        $("#login").on("click", function () {
-            window.location.href = "/search";
-        });
-    });
-</script>

@@ -1,10 +1,5 @@
 ---
-import "@fontsource/titillium-web";
-
-const {
-    title = "Gamma Security Services",
-    description = "GSS (Gamma Security Services) is a worldwide military private security company (PMSC).",
-} = Astro.props;
+const { title = "Gamma Security Services" } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +7,10 @@ const {
     <head>
         <title>{title}</title>
         <meta charset="UTF-8" />
-        <meta name="description" content={description} />
+        <meta
+            name="description"
+            content="GSS (Gamma Security Services) is a worldwide military private security company (PMSC)."
+        />
         <meta name="generator" content={Astro.generator} />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta
@@ -33,7 +31,7 @@ const {
 
     body
         margin: 0
-        display: flex
+        display: none
         cursor: default
         flex-direction: column
 </style>

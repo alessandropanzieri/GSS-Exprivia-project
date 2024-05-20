@@ -1,4 +1,5 @@
 ---
+import "@fontsource/titillium-web";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 ---
@@ -18,86 +19,136 @@ import Header from "@components/Header.astro";
             <button type="submit"><img src="/search.png" alt="search" /></button
             >
         </form>
-        <h1>All Employees</h1>
-        <h1>Other administrators</h1>
+        <h1 id="employees">All Employees</h1>
+        <h1 id="administrators">Administrators</h1>
     </main>
 </Layout>
-
-<style lang="sass">
-    .hidden
-        display: hidden
-
-    h2
-        margin: 0
-        color: rgba(37, 42, 63, 0.65)
-
-    main
-        padding: 10px 15px
-
-        form
-            gap: 10px
-            width: 100%
-            display: flex
-            margin-top: 20px
-            justify-content: center
-
-            input
-                width: 100%
-                font-size: 15px
-                border-width: 2px
-                padding-left: 25px
-                border-radius: 90px
-                outline-color: rgb(37, 42, 63)
-                font-family: "Titillium Web", sans-serif
-
-            button
-                border: none
-                cursor: pointer
-                background-color: rgba(255, 255, 255, 0)
-
-        h1
-            margin: 20px
-            color: rgba(37, 42, 63, 0.65)
-            font-family: "Titillium Web", sans-serif
-</style>
 
 <script>
     import keycloak from "@lib/keycloak";
 
     $(() => {
+        function request(route) {
+            fetch(`http://backend:8000/${route}/`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${keycloak.token}`,
+                },
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+                .then((data) => {
+                    console.log(data);
+                    data.map((info) =>
+                        $(`#${route}`).after(`
+                            <div class="employee" id=${info.id}>
+                                <div class="picture">
+                                    <img src="/profile_small.png" alt="profile picture" />
+                                    <h1>${info.first_name} ${info.last_name}</h1>
+                                    <h2 class={current_status}>${info.current_status}</h2>
+                                    <h2 class="rank">${info.rank}</h2>
+                                </div>
+                                <img src="/open.png" alt="open" />
+                            </div>
+                        `),
+                    );
+                });
+        }
+
         keycloak
             .init({ onLoad: "login-required" })
             .then(function (authenticated) {
                 if (authenticated) {
-                    $(".hidden").removeClass("hidden");
+                    request("employees");
+                    request("administrators");
+                    $("body").css("display", "flex");
                 }
             });
 
         $("#logout").on("click", function () {
             keycloak.logout({ redirectUri: "/" });
         });
+
+        $(".employee").on("click", function () {
+            window.location.href = `employee/${$(this).attr("id")}`;
+        });
     });
 </script>
 
-<!-- {
-    employees.map((info) => (
-        <Employee
-            id={info.id}
-            first_name={info.first_name}
-            last_name={info.last_name}
-            current_status={info.current_status}
-            rank={info.rank}
-        />
-    ))
-}
-{
-    administrators.map((info) => (
-        <Employee
-            id={info.id}
-            first_name={info.first_name}
-            last_name={info.last_name}
-            current_status={info.current_status}
-            rank={info.rank}
-        />
-    ))
-} -->
+<style>
+    h1,
+    h2 {
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    h2 {
+        margin: 0;
+        color: rgba(37, 42, 63, 0.65);
+    }
+
+    main {
+        padding: 10px 15px;
+    }
+
+    main form {
+        gap: 10px;
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    main form input {
+        width: 100%;
+        font-size: 15px;
+        border-width: 2px;
+        padding-left: 25px;
+        border-radius: 90px;
+        outline-color: rgb(37, 42, 63);
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    main form button {
+        border: none;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    main h1 {
+        margin: 20px;
+        color: rgba(37, 42, 63, 0.65);
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    .employee {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .picture {
+        gap: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .active {
+        color: rgb(127, 255, 212);
+    }
+
+    .fired {
+        color: red;
+    }
+
+    .retired {
+        color: yellow;
+    }
+
+    .rank {
+        color: rgba(37, 42, 63, 0.65);
+    }
+</style>
