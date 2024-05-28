@@ -1,5 +1,5 @@
 ---
-const { action = "login" } = Astro.props;
+const { action } = Astro.props;
 ---
 
 <header>
@@ -21,37 +21,32 @@ const { action = "login" } = Astro.props;
         font-family: "Titillium Web", sans-serif
         filter: drop-shadow(0 0 0.25rem rgb(37, 42, 63))
 
-    nav
-        padding: 15px
-        display: flex
-        align-items: center
-        justify-content: space-between
+        nav
+            padding: 15px
+            display: flex
+            align-items: center
+            justify-content: space-between
 
-    div
-        gap: 25px
-        display: flex
-        align-items: center
+        div
+            gap: 25px
+            display: flex
+            align-items: center
 
-    form
-        gap: 5px
-        width: 40%
-        display: flex
+            img
+                cursor: pointer
+                filter: drop-shadow(0 0 0.25rem rgb(37, 42, 63))
 
-    img
-        cursor: pointer
-        filter: drop-shadow(0 0 0.25rem rgb(37, 42, 63))
+            h2
+                margin: 0
+                color: rgb(37, 42, 63)
 
-    h2
-        margin: 0
-        color: rgb(37, 42, 63)
-
-    button
-        border: none
-        font-size: 30px
-        cursor: pointer
-        text-transform: capitalize
-        background-color: rgb(0, 0, 0, 0)
-        font-family: "Titillium Web", sans-serif
+        button
+            border: none
+            font-size: 30px
+            cursor: pointer
+            text-transform: capitalize
+            background-color: rgb(0, 0, 0, 0)
+            font-family: "Titillium Web", sans-serif
 </style>
 
 <script>

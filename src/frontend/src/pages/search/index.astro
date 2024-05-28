@@ -41,20 +41,27 @@ import Header from "@components/Header.astro";
                     }
                 })
                 .then((data) => {
-                    console.log(data);
-                    data.map((info) =>
-                        $(`#${route}`).after(`
-                            <div class="employee" id=${info.id}>
-                                <div class="picture">
-                                    <img src="/profile_small.png" alt="profile picture" />
-                                    <h1>${info.first_name} ${info.last_name}</h1>
-                                    <h2 class={current_status}>${info.current_status}</h2>
-                                    <h2 class="rank">${info.rank}</h2>
+                    data.forEach((info) => {
+                        data.forEach((info) => {
+                            $(`#${route}`).after(`
+                                <div class="employee" id="${info.id}" style="display: flex; cursor: pointer; align-items: center; justify-content: space-between;">
+                                    <div class="picture" style="gap: 15px; display: flex; align-items: center;">
+                                        <img src="/profile_small.png" alt="profile picture" />
+                                        <h1 style="margin: 20px; color: rgba(37, 42, 63, 0.65); font-family: 'Titillium Web', sans-serif;">
+                                            ${info.first_name} ${info.last_name}
+                                        </h1>
+                                        <h2 style="font-family: 'Titillium Web', sans-serif; margin: 0; color: ${info.current_status === "active" ? "rgb(127, 255, 212)" : info.current_status === "fired" ? "red" : info.current_status === "retired" ? "yellow" : "rgba(37, 42, 63, 0.65)"};">
+                                            ${info.current_status}
+                                        </h2>
+                                        <h2 class="rank" style="font-family: 'Titillium Web', sans-serif; margin: 0; color: rgba(37, 42, 63, 0.65);">
+                                            ${info.rank}
+                                        </h2>
+                                    </div>
+                                    <img src="/open.png" alt="open" />
                                 </div>
-                                <img src="/open.png" alt="open" />
-                            </div>
-                        `),
-                    );
+                            `);
+                        });
+                    });
                 });
         }
 
@@ -64,6 +71,7 @@ import Header from "@components/Header.astro";
                 if (authenticated) {
                     request("employees");
                     request("administrators");
+                    1;
                     $("body").css("display", "flex");
                 }
             });
@@ -79,14 +87,18 @@ import Header from "@components/Header.astro";
 </script>
 
 <style>
-    h1,
-    h2 {
+    main h1,
+    main h2 {
+        color: rgba(37, 42, 63, 0.65);
         font-family: "Titillium Web", sans-serif;
     }
 
-    h2 {
+    main h1 {
+        margin: 20px;
+    }
+
+    main h2 {
         margin: 0;
-        color: rgba(37, 42, 63, 0.65);
     }
 
     main {
@@ -115,40 +127,5 @@ import Header from "@components/Header.astro";
         border: none;
         cursor: pointer;
         background-color: rgba(255, 255, 255, 0);
-    }
-
-    main h1 {
-        margin: 20px;
-        color: rgba(37, 42, 63, 0.65);
-        font-family: "Titillium Web", sans-serif;
-    }
-
-    .employee {
-        display: flex;
-        cursor: pointer;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .picture {
-        gap: 15px;
-        display: flex;
-        align-items: center;
-    }
-
-    .active {
-        color: rgb(127, 255, 212);
-    }
-
-    .fired {
-        color: red;
-    }
-
-    .retired {
-        color: yellow;
-    }
-
-    .rank {
-        color: rgba(37, 42, 63, 0.65);
     }
 </style>

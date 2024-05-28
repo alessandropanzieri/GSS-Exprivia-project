@@ -44,8 +44,8 @@ services:
       KEYCLOAK_CLIENT_ID: GSS
       KEYCLOAK_SERVER_URL: http://keycloak:8080/
       KEYCLOAK_CALLBACK_URI: http://backend:8000/docs
-      KEYCLOAK_CLIENT_SECRET: C8WQY8SnQVBGzQzy8YNmi1GDJICi5Fi7
-      KEYCLOAK_ADMIN_CLIENT_SECRET: fceQT5oia1f2Bx4symaxzLvgm0YBU2em
+      KEYCLOAK_CLIENT_SECRET: 1E9n6y1auNuY1f4yvllTrAh9yulBMbP7
+      KEYCLOAK_ADMIN_CLIENT_SECRET: xFdD90LEVtl4sAsXPtls1XJPW1zTUNSH
     ports:
       - 8000:8000
 
@@ -57,9 +57,10 @@ services:
     ports:
       - 4321:4321
 
-  # jenkins:
-  #   image: jenkins/jenkins
-  #   volumes:
-  #     - jenkins_home:/var/jenkins_home
-  #   ports:
-  #     - 8081:8080
+  jenkins:
+    image: jenkins/jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    ports:
+      - 8081:8080
+      - 50000:50000
